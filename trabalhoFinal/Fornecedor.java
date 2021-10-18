@@ -1,13 +1,9 @@
 package trabalhoFinal;
 
-class Fornecedor extends Funcoes {
-	String telefone;
-	String cnpj;
+public class Fornecedor extends Empresa implements Funcoes {
 
-	Fornecedor(String nome, String telefone, String cnpj) {
-		this.nome = nome;
-		this.telefone = telefone;
-		this.cnpj = cnpj;
+	Fornecedor(String nome, String telefone, String cnpj, String razaoSocial) {
+		super(nome, telefone, cnpj, razaoSocial);	
 	}
 
 	public void exclusao(Fornecedor fornecedor) {

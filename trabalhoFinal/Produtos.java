@@ -1,12 +1,13 @@
 package trabalhoFinal;
 
-public class Produtos extends Funcoes{
+public class Produtos implements Funcoes{
 	
+	String nome;
 	private int quatidadeEstoque;
 	private double precoCusto;
 	double precoVenda;
 	private String dataUltimaCompraEstoque;
-    Fornecedor fornecedor;
+	Fornecedor fornecedor;
 
 	Produtos(String nome, int quatidadeEstoque) {
 		this.nome = nome;

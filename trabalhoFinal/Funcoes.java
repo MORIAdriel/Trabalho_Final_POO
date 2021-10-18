@@ -1,14 +1,7 @@
 package trabalhoFinal;
 
-abstract class Funcoes {
+interface Funcoes {
 	
-	String nome;
-	
-	void exclusao() {	
-	}
-	
-	abstract void consulta(String nome);
-
-	abstract void alteracaoCadastros();
-
+	void consulta(String nome);
+	void alteracaoCadastros();
 }

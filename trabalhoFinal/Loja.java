@@ -2,19 +2,12 @@ package trabalhoFinal;
 
 import java.util.ArrayList;
 
-class Loja extends Funcoes {
-	String endereco;
-	String bairro;
-	String cidade;
-	String estado;
+public class Loja extends Empresa implements Funcoes {
+	
 	ArrayList<Produtos> produtos = new ArrayList<>();
 
-	Loja(String nome, String endereco, String bairro, String cidade, String estado) {
-		this.nome = nome;
-		this.endereco = endereco;
-		this.bairro = bairro;
-		this.cidade = cidade;
-		this.estado = estado;
+	Loja(String nome, String telefone, String cnpj, String razaoSocial) {
+		super(nome, telefone, cnpj, razaoSocial);	
 	}
 
 	public void exclusao(Loja loja) {
