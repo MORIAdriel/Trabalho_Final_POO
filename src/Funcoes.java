@@ -1,4 +1,4 @@
-package trabalhoFinal;
+package src;
 
 public interface Funcoes {
 	

@@ -1,4 +1,4 @@
-package trabalhoFinal;
+package src;
 
 public abstract class Empresa implements Funcoes{
 	String nome;

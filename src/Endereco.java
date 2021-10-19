@@ -1,4 +1,4 @@
-package trabalhoFinal;
+package src;
 
 public class Endereco {
 	String bairro;
