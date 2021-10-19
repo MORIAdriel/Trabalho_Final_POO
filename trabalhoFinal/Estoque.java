@@ -7,9 +7,8 @@ public class Estoque implements Funcoes{
 	private int capacidadeMax;
 	ArrayList<Produtos> produtosEmEstoque = new ArrayList<>();
 	
-	Estoque(int capacidadeMax, ArrayList<Produtos> produtosEmEstoque) {
+	Estoque(int capacidadeMax) {
 		this.capacidadeMax = capacidadeMax;
-		this.produtosEmEstoque = produtosEmEstoque;
 	}
 	
 	public void listagemProdutoNoEstoque(Endereco procurado) {
