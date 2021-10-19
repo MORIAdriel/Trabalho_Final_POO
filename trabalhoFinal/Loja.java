@@ -2,9 +2,9 @@ package trabalhoFinal;
 
 import java.util.ArrayList;
 
-public class Loja extends Empresa implements Funcoes {
-	
-	ArrayList<Produtos> produtos = new ArrayList<>();
+public class Loja extends Empresa{
+
+	Estoque loja;
 
 	Loja(String nome, String telefone, String cnpj, String razaoSocial) {
 		super(nome, telefone, cnpj, razaoSocial);	
@@ -22,7 +22,4 @@ public class Loja extends Empresa implements Funcoes {
 
 	}
 
-	public void procuraProduto(String cidade, String bairro, String produto) {
-
-	}
 }
