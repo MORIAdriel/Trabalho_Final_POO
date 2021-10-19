@@ -15,27 +15,19 @@ public class Estoque implements Funcoes{
 
 	}
 
-	@Override
 	public void consulta(String nome) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void alteracaoCadastros() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void capacidadeEstoque() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public boolean verificaEstoque() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }

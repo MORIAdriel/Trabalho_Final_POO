@@ -1,6 +1,6 @@
 package trabalhoFinal;
 
-public class Empresa implements Funcoes{
+public abstract class Empresa implements Funcoes{
 	String nome;
 	String telefone;
 	String cnpj;
@@ -14,27 +14,19 @@ public class Empresa implements Funcoes{
 		this.razaoSocial = razaoSocial;
 	}
 
-	@Override
 	public void consulta(String nome) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void alteracaoCadastros() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void capacidadeEstoque() {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public boolean verificaEstoque() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }
