@@ -1,6 +1,6 @@
 package trabalhoFinal;
 
-public class Produtos implements Funcoes{
+public class Produtos{
 
 	String nome;
 	private int quatidadeEstoque;
