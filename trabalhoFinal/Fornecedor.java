@@ -1,7 +1,9 @@
 package trabalhoFinal;
 
-public class Fornecedor extends Empresa implements Funcoes {
+public class Fornecedor extends Empresa{
 
+	Estoque forcedor;
+	
 	Fornecedor(String nome, String telefone, String cnpj, String razaoSocial) {
 		super(nome, telefone, cnpj, razaoSocial);	
 	}
@@ -17,5 +19,4 @@ public class Fornecedor extends Empresa implements Funcoes {
 	public void alteracaoCadastros() {
 
 	}
-
 }
