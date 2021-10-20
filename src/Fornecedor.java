@@ -1,6 +1,11 @@
 package src;
 
-public class Fornecedor extends Empresa{
+/*
+ * Uma classe que representa um fornecedor 
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
+public class Fornecedor extends Empresa {
 
 	Estoque forcedor;
 	

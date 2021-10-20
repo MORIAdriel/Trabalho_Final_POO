@@ -1,6 +1,11 @@
 package src;
 
-public abstract class Empresa implements Funcoes{
+/*
+ * Uma classe abstrata que representa uma empresa
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
+public abstract class Empresa implements Funcoes {
 	String nome;
 	String telefone;
 	String cnpj;

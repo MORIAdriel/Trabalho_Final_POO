@@ -1,6 +1,11 @@
 package src;
 
-public class Produtos{
+/*
+ * Uma classe que representa um produto de uma loja ou estoque  
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
+public class Produtos {
 
 	String nome;
 	private int quatidadeEstoque;

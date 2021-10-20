@@ -2,7 +2,12 @@ package src;
 
 import java.util.ArrayList;
 
-public class Estoque implements Funcoes{
+/*
+ * Uma classe Estoque que contem os produtos de uma Loja ou fornecedor 
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
+public class Estoque implements Funcoes {
 
 	private int capacidadeMax;
 	ArrayList<Produtos> produtosEmEstoque = new ArrayList<>();

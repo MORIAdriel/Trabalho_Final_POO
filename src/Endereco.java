@@ -1,5 +1,10 @@
 package src;
 
+/*
+ * Uma classe que contem os dados de um endereço
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
 public class Endereco {
 	String bairro;
 	String cidade;

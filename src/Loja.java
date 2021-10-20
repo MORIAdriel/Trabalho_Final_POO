@@ -2,7 +2,12 @@ package src;
 
 import java.util.ArrayList;
 
-public class Loja extends Empresa{
+/*
+ * Uma classe que representa uma loja  
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
+public class Loja extends Empresa {
 
 	Estoque loja;
 
