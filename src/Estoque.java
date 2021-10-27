@@ -35,4 +35,8 @@ public class Estoque implements Funcoes {
 	public boolean verificaEstoque() {
 		return false;
 	}
+
+	public String toString() {
+		return "Capacidade máxima: " + capacidadeMax;
+	}
 }

@@ -15,4 +15,10 @@ public class Endereco {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
+
+	public String toString() {
+		return "Estado: " + estado +
+			" - Cidade: " + cidade +
+			" - bairro: " + bairro;
+	}
 }

@@ -7,7 +7,7 @@ package src;
 
 public class Fornecedor extends Empresa {
 
-	Estoque forcedor;
+	Estoque estoque;
 	
 	Fornecedor(String nome, String telefone, String cnpj, String razaoSocial) {
 		super(nome, telefone, cnpj, razaoSocial);	
@@ -24,4 +24,9 @@ public class Fornecedor extends Empresa {
 	public void alteracaoCadastros() {
 
 	}
+
+	public String toString() {
+		return super.toString() + " - " + estoque;
+	}
+
 }

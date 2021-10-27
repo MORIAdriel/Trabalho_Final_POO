@@ -34,4 +34,12 @@ public abstract class Empresa implements Funcoes {
 	public boolean verificaEstoque() {
 		return false;
 	}
+
+	public String toString() {
+		return "Nome: " + nome +
+			" - Telefone: " + telefone +
+			" - Cnpj: " + cnpj +
+			" - Razão social: " + razaoSocial +
+			" - Endereco: " + endereco;
+	}
 }

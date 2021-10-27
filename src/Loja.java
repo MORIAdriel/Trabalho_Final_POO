@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Loja extends Empresa {
 
-	Estoque loja;
+	Estoque estoque;
 
 	Loja(String nome, String telefone, String cnpj, String razaoSocial) {
 		super(nome, telefone, cnpj, razaoSocial);	
@@ -27,4 +27,7 @@ public class Loja extends Empresa {
 
 	}
 
+	public String toString() {
+		return super.toString() + " - " + estoque;
+	}
 }
