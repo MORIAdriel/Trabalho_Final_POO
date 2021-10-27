@@ -13,7 +13,6 @@ public class TrabalhoFinal {
 	public static void main(String[] args) {
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
 		Scanner input = new Scanner(System.in);
-		input.useDelimiter("[;\r\n]+");
 		Boolean sair = true;
 		String escolha;
 		// Usado para criar uma Empresa
