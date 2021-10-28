@@ -7,8 +7,6 @@ package src;
 
 public class Fornecedor extends Empresa {
 
-	Estoque estoque;
-	
 	Fornecedor(String nome, String telefone, String cnpj, String razaoSocial) {
 		super(nome, telefone, cnpj, razaoSocial);	
 	}

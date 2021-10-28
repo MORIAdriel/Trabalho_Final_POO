@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 public class Loja extends Empresa {
 
-	Estoque estoque;
-
 	Loja(String nome, String telefone, String cnpj, String razaoSocial) {
 		super(nome, telefone, cnpj, razaoSocial);	
 	}

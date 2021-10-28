@@ -11,20 +11,21 @@ public abstract class Empresa implements Funcoes {
 	String cnpj;
 	String razaoSocial;
 	Endereco endereco;
+	Estoque estoque;
 
 	Empresa(String nome, String telefone, String cnpj, String razaoSocial) {
-		this.nome = nome;
-		this.telefone = telefone;
-		this.cnpj = cnpj;
-		this.razaoSocial = razaoSocial;
+		alteracaoCadastros(nome, telefone, cnpj, razaoSocial);
 	}
 
 	public void consulta(String nome) {
 		
 	}
 
-	public void alteracaoCadastros() {
-		
+	public void alteracaoCadastros(String nome, String telefone, String cnpj, String razaoSocial) {
+		this.nome = nome;
+		this.telefone = telefone;
+		this.cnpj = cnpj;
+		this.razaoSocial = razaoSocial;
 	}
 
 	public void capacidadeEstoque() {

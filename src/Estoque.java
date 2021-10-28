@@ -13,6 +13,14 @@ public class Estoque implements Funcoes {
 	ArrayList<Produtos> produtosEmEstoque = new ArrayList<>();
 	
 	Estoque(int capacidadeMax) {
+		setCapacidadeMax(capacidadeMax);
+	}
+
+	public int getCapacidadeMax() {
+		return capacidadeMax;
+	}
+
+	public void setCapacidadeMax(int capacidadeMax) {
 		this.capacidadeMax = capacidadeMax;
 	}
 	

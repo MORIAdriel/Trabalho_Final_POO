@@ -11,6 +11,10 @@ public class Endereco {
 	String estado;
 
 	Endereco(String bairro, String cidade, String estado) {
+		alteracaoCadastros(bairro, cidade, estado);
+	}
+
+	public void alteracaoCadastros(String bairro, String cidade, String estado) {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
