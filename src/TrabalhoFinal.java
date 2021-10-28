@@ -35,24 +35,26 @@ public class TrabalhoFinal {
 					 */
 					System.out.println("1 - Adicionar uma loja\n" +
 							   "2 - Adicionar um Fornecedor");
-					escolha = input.nextLine();
+					escolha = input.next();
+					input = new Scanner(System.in);
 					if (escolha.equals("1")) {
 
 						// Criação da loja
 						System.out.println("Qual o nome da loja?");
 						nome = input.nextLine();
 						System.out.println("Qual o número de telefone da loja?");
-						telefone = input.nextLine();
+						telefone = input.next();
 						System.out.println("Qual o cnpj da loja?");
-						cnpj = input.nextLine();
+						cnpj = input.next();
+						input = new Scanner(System.in);
 						System.out.println("Qual a razão social da loja?");
 						razaoSocial = input.nextLine();
 						Loja loja = new Loja(nome, telefone, cnpj, razaoSocial);
 
 						// Criação do estoque da loja
 						System.out.println("Qual a capacidade máxima do estoque da loja?");
-						capacidade = input.nextLine();
-						capacidadeMax = Integer.parseInt(capacidade);
+						capacidadeMax = input.nextInt();
+						input = new Scanner(System.in);
 						Estoque estoque = new Estoque(capacidadeMax);
 						loja.estoque = estoque;
 
@@ -74,9 +76,10 @@ public class TrabalhoFinal {
 						System.out.println("Qual o nome do fornecedor?");
 						nome = input.nextLine();
 						System.out.println("Qual o número de telefone do fornecedor?");
-						telefone = input.nextLine();
+						telefone = input.next();
 						System.out.println("Qual o cnpj do fornecedor?");
-						cnpj = input.nextLine();
+						cnpj = input.next();
+						input = new Scanner(System.in);
 						System.out.println("Qual a razão social do fornecedor?");
 						razaoSocial = input.nextLine();
 						Fornecedor fornecedor = new Fornecedor(nome, telefone, cnpj, razaoSocial);
@@ -86,6 +89,7 @@ public class TrabalhoFinal {
 						capacidade = input.nextLine();
 						capacidadeMax = Integer.parseInt(capacidade);
 						Estoque estoque = new Estoque(capacidadeMax);
+						input = new Scanner(System.in);
 						fornecedor.estoque = estoque;
 
 						// Endereço da loja
