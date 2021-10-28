@@ -27,7 +27,8 @@ public class TrabalhoFinal {
 					"2 - Adicionar um produto\n" +
 					"3 - Procurar um produto por endereço\n" +
 					"4 - Modificar algum dado\n" +
-					"5 - sair", 
+					"5 - Mostrar dados das empresas\n" +
+					"6 - Sair", 
 					"TrabalhoFinal", JOptionPane.QUESTION_MESSAGE);
 			switch (escolha) {
 				case "1":
@@ -181,14 +182,14 @@ public class TrabalhoFinal {
 						System.out.println("Não existe essa empresa");
 					}
 					break;
-				case "5":
+				case "6":
+					for (i = 0; i < empresas.size(); i++) {
+						System.out.println(empresas.get(i));
+					}
+					break;
+				case "7":
 					sair = false;
 			}
-		}
-
-		// Teste de empresa
-		for (i = 0; i < empresas.size(); i++) {
-			System.out.println(empresas.get(i));
 		}
 	}
 }
