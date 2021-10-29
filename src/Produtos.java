@@ -19,10 +19,6 @@ public class Produtos {
 		this.quatidadeEstoque = quatidadeEstoque;
 	}
 
-	public void exclusao(Produtos produtos) {
-
-	}
-
 	public void consulta(String nome) {
 
 	}
