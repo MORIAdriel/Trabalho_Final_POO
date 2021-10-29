@@ -24,7 +24,7 @@ public class Fornecedor extends Empresa {
 	}
 
 	public String toString() {
-		return super.toString() + " - " + estoque;
+		return "Fornecedor: " + super.toString() + " - " + estoque;
 	}
 
 }

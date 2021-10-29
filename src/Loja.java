@@ -26,6 +26,6 @@ public class Loja extends Empresa {
 	}
 
 	public String toString() {
-		return super.toString() + " - " + estoque;
+		return "Loja: " + super.toString() + " - " + estoque;
 	}
 }
