@@ -37,6 +37,7 @@ public class Produtos{
 			" - Quantidade em estoque: " + quatidadeEstoque +
 			" - Preço de custo: " + precoCusto +
 			" - Preço de venda: " + precoVenda +
-			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque +"\n";
+			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque +
+			" - Fornecedor: "+ fornecedora.nome + "\n";
 		}
 }
