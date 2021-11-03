@@ -21,6 +21,7 @@ public class Produtos{
 		this.precoCusto = precoCusto;
 		this.precoVenda = precoVenda;
 		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
+		this.fornecedora=fornecedora;
 	}
 
 	public void consulta(String nome) {
@@ -38,6 +39,6 @@ public class Produtos{
 			" - Preço de custo: " + precoCusto +
 			" - Preço de venda: " + precoVenda +
 			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque +
-			" - Fornecedor: "+ fornecedora.nome + "\n";
+			" - Fornecedor: "+ fornecedora.nome+"\n";
 		}
 }
