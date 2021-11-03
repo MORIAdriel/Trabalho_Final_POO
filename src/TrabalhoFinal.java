@@ -11,7 +11,7 @@ import java.io.*;
  */
 
 public class TrabalhoFinal {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
 		Scanner input = new Scanner(System.in);
 		int i, aux = -1;
@@ -182,8 +182,78 @@ public class TrabalhoFinal {
 					break;
 				case "2":
 					/*
-					 * Aqui o usuário poderá adicionar um produto a alguma loja ou fornecedor
+					 * Aqui o usuário poderá adicionar um produto a alguma loja
 					 */
+					System.out.println("\n-------ADICIONANDO PRODUTOS--------");
+					
+					if(empresas.isEmpty()) {
+						
+						System.out.println("Nenhuma empresa no sistema");
+						
+					}else {
+						//Aqui o usuário irá adicionar produtos a loja
+						
+						System.out.println("Qual o nome da loja a se adicionar o(s) produto(s) ?");
+						String verificaLoja = input.next();
+						input = new Scanner(System.in);
+						int cont=0;
+						//Para caso não exista empresas dentro do sistema
+						for (i = 0; i < empresas.size(); i++) {
+							if (verificaLoja.equals(empresas.get(i).nome)) {
+								cont = i;
+								break;
+							}
+						} 
+						
+						if(cont==i) {
+							
+							int cont2=0;
+							System.out.println("Qual o nome do fornecedor dos produtos ?");
+							String nomeFornecedor = input.nextLine();
+							
+							for (int j = 0; j < empresas.size(); j++) {
+								if (nomeFornecedor.equals(empresas.get(j).nome)) {
+									cont2 = j;
+									break;
+								}
+							}
+							//Verificando se existe o fornecedor
+							if(cont2 == 0) {
+								System.out.println("Nenhum fornecedor com esse nome no sistema");
+								break;
+							} else
+							
+							System.out.println("Quantos produtos serão adicionados ?");
+							int num = input.nextInt();
+							
+							for(int p=0;p<num;p++) {
+								
+								System.out.println("---Produto "+ (p+1) +" ---");
+								
+								input = new Scanner(System.in);
+								System.out.println("Qual o nome do produto ?");
+								String nomeProduto = input.nextLine();
+								input = new Scanner(System.in);
+								System.out.println("Qual a quantidade de estoque ?");
+								int quantidadeEstoque = input.nextInt();
+								System.out.println("Qual o preço de custo ?");
+								double precoCusto = input.nextDouble();
+								System.out.println("Qual o preço de venda ?");
+								double precoVenda = input.nextDouble();
+								input = new Scanner(System.in);
+								System.out.println("Qual a data de compra ?");
+								String dataUltimaCompraEstoque = input.nextLine();
+								
+								Produtos produto = new Produtos(nomeProduto, quantidadeEstoque, 
+										precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
+								
+								empresas.get(i).estoque.produtosEmEstoque.add(produto);
+							}
+							
+						} else 
+							System.out.println("Nenhuma loja com esse nome no sistema");
+						
+					}
 					break;
 				case "3":
 					/*
@@ -265,6 +335,7 @@ public class TrabalhoFinal {
 					} else {
 						for (i = 0; i < empresas.size(); i++) {
 							System.out.println(empresas.get(i));
+							System.out.println(empresas.get(i).estoque.produtosEmEstoque);
 						}
 	
 					}
