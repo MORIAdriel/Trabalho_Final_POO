@@ -10,6 +10,18 @@ import java.io.*;
  * @author Igor M. Padua e Adreil M. V. Mori
  */
 
+package trabalhoFinal;
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+import java.io.*;
+
+/*
+ * Classe principal do programa  
+ * @author Igor M. Padua e Adreil M. V. Mori
+ */
+
 public class TrabalhoFinal {
 	public static void main(String[] args) throws Exception {
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
