@@ -3,6 +3,7 @@ package src;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
+import java.io.*;
 
 /*
  * Classe principal do programa  
@@ -13,7 +14,7 @@ public class TrabalhoFinal {
 	public static void main(String[] args) {
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
 		Scanner input = new Scanner(System.in);
-		int i , aux = -1;
+		int i, aux = -1;
 		Boolean sair = true;
 		String escolha;
 		// Usado para criar uma Empresa
@@ -21,6 +22,73 @@ public class TrabalhoFinal {
 		String bairro, cidade, estado;
 		int capacidadeMax;
 
+		// Ler o arquivo
+		try {
+			InputStream arquivo = new FileInputStream("Dados.txt");
+			InputStreamReader in = new InputStreamReader(arquivo);
+			BufferedReader br = new BufferedReader(in);
+
+			String linha = br.readLine();
+
+			while (linha != null) {
+				String[] campos = linha.split(";");
+
+				//System.out.println(campos[0]);
+
+				if (campos[0].equals("loja")) {
+						
+					// Dados principais
+					nome = campos[1];
+					telefone = campos[2];
+					cnpj = campos[3];
+					razaoSocial = campos[4];
+					Loja loja = new Loja(nome, telefone, cnpj, razaoSocial);
+					// Estoque
+					capacidadeMax = Integer.parseInt(campos[5]);
+					Estoque estoque = new Estoque(capacidadeMax);
+					loja.estoque = estoque;
+					// Endereço
+					estado = campos[6];
+					cidade = campos[7];
+					bairro = campos[8];
+					Endereco endereco = new Endereco(bairro, cidade, estado);
+					loja.endereco = endereco;
+
+					empresas.add(loja);
+
+				} else if (campos[0].equals("fornecedor")) {
+	
+					// Dados principais
+					nome = campos[1];
+					telefone = campos[2];
+					cnpj = campos[3];
+					razaoSocial = campos[4];
+					Fornecedor fornecedor = new Fornecedor(nome, telefone, cnpj, razaoSocial);
+					// Estoque
+					capacidadeMax = Integer.parseInt(campos[5]);
+					Estoque estoque = new Estoque(capacidadeMax);
+					fornecedor.estoque = estoque;
+					// Endereço
+					estado = campos[6];
+					cidade = campos[7];
+					bairro = campos[8];
+					Endereco endereco = new Endereco(bairro, cidade, estado);
+					fornecedor.endereco = endereco;
+
+					empresas.add(fornecedor);
+				}
+
+				linha = br.readLine();
+			}
+
+			br.close();
+			in.close();
+			arquivo.close();
+	
+		} catch(Exception e){
+			System.out.println("Arquivo não existe");
+		}
+		
 		while (sair == true) {
 			escolha = JOptionPane.showInputDialog(null, 
 					"1 - Adicionar uma empresa\n" + 
@@ -241,6 +309,44 @@ public class TrabalhoFinal {
 
 					break;
 				case "7":
+					// Escrita no arquivo
+					try {
+						
+						FileWriter arquivo1 = new FileWriter("Dados.txt");
+						PrintWriter pr = new PrintWriter(arquivo1);
+						String texto;
+
+						for (i = 0; i < empresas.size(); i++) {
+							
+							if (empresas.get(i) instanceof Loja) {
+								pr.print("loja;");
+							} else {
+								pr.print("fornecedor;");
+							}
+
+							nome = empresas.get(i).nome;
+							telefone = empresas.get(i).telefone;
+							cnpj = empresas.get(i).cnpj;
+							razaoSocial = empresas.get(i).razaoSocial;
+							// Estoque
+							capacidadeMax = empresas.get(i).estoque.getCapacidadeMax();	
+							// Endereço
+							estado = empresas.get(i).endereco.estado;
+							cidade = empresas.get(i).endereco.cidade;
+							bairro = empresas.get(i).endereco.bairro;
+
+							texto = nome + ";" + telefone + ";" + cnpj + ";" + razaoSocial + ";" +
+								capacidadeMax + ";" + estado + ";" + cidade + ";" + bairro + ";";
+							pr.println(texto);
+							pr.flush();
+						}
+
+						arquivo1.close();
+						pr.close();
+
+					} catch(Exception e){
+						System.out.println("Não existe o arquivo");
+					}
 					sair = false;
 			}
 		}
