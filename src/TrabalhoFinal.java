@@ -450,7 +450,7 @@ public class TrabalhoFinal {
 									double precoVenda = empresas.get(i).estoque.produtosEmEstoque.get(j).precoVenda;
 									String dataUltimaCompraEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getDataUltimaCompraEstoque();
 									// Fornecedor
-									Empresa forenecedora = empresas.get(j).estoque.produtosEmEstoque.get(j).fornecedora; //Aqui imprimo o toString Fornecedor na lista	
+									Empresa forenecedora = empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora; //Aqui imprimo o toString Fornecedor na lista	
 									//String forenecedora = empresas.get(j).nome; //Aqui o nome da empresa na prosição j	
 									//Ainda falta fazer o programa ler os produtos
 									
