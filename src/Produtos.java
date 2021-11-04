@@ -24,6 +24,30 @@ public class Produtos {
 		this.fornecedora = fornecedora;
 	}
 
+	public int getQuatidadeEstoque() {
+		return quatidadeEstoque;
+	}
+
+	public void setQuatidadeEstoque(int quatidadeEstoque) {
+		this.quatidadeEstoque = quatidadeEstoque;
+	}
+
+	public double getPrecoCusto() {
+		return precoCusto;
+	}
+
+	public void setPrecoCusto(double precoCusto) {
+		this.precoCusto = precoCusto;
+	}
+
+	public String getDataUltimaCompraEstoque() {
+		return dataUltimaCompraEstoque;
+	}
+
+	public void setDataUltimaCompraEstoque(String dataUltimaCompraEstoque) {
+		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
+	}
+
 	public void alteracaoCadastros() {
 
 	}
@@ -35,6 +59,6 @@ public class Produtos {
 			" - Preço de custo: " + precoCusto +
 			" - Preço de venda: " + precoVenda +
 			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque +
-			" - Fornecedor: "+ fornecedora.nome+"\n";
+			" - Fornecedor: "+ fornecedora.nome +"\n";
 	}
 }
