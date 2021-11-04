@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Igor M. Padua e Adreil M. V. Mori
  */
 
-public class Estoque implements Funcoes {
+public class Estoque {
 
 	private int capacidadeMax;
 	ArrayList<Produtos> produtosEmEstoque = new ArrayList<>();
@@ -22,18 +22,6 @@ public class Estoque implements Funcoes {
 
 	public void setCapacidadeMax(int capacidadeMax) {
 		this.capacidadeMax = capacidadeMax;
-	}
-	
-	public void listagemProdutoNoEstoque(Endereco procurado) {
-
-	}
-
-	public void alteracaoCadastros() {
-		
-	}
-
-	public void capacidadeEstoque() {
-		
 	}
 
 	public boolean verificaEstoque() {

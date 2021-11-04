@@ -5,7 +5,7 @@ package src;
  * @author Igor M. Padua e Adreil M. V. Mori
  */
 
-public abstract class Empresa implements Funcoes {
+public abstract class Empresa {
 	String nome;
 	String telefone;
 	String cnpj;
@@ -22,14 +22,6 @@ public abstract class Empresa implements Funcoes {
 		this.telefone = telefone;
 		this.cnpj = cnpj;
 		this.razaoSocial = razaoSocial;
-	}
-
-	public void capacidadeEstoque() {
-		
-	}
-
-	public boolean verificaEstoque() {
-		return false;
 	}
 
 	public String toString() {

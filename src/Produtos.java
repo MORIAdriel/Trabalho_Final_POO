@@ -5,7 +5,7 @@ package src;
  * @author Igor M. Padua e Adreil M. V. Mori
  */
 
-public class Produtos{
+public class Produtos {
 
 	String nomeProduto;
 	private int quatidadeEstoque;
@@ -21,20 +21,20 @@ public class Produtos{
 		this.precoCusto = precoCusto;
 		this.precoVenda = precoVenda;
 		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
-		this.fornecedora=fornecedora;
+		this.fornecedora = fornecedora;
 	}
 
 	public void alteracaoCadastros() {
 
 	}
-	
+
 	public String toString() {
-		
+
 		return "Produto: Nome do produto: " + nomeProduto +
 			" - Quantidade em estoque: " + quatidadeEstoque +
 			" - Preço de custo: " + precoCusto +
 			" - Preço de venda: " + precoVenda +
 			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque +
 			" - Fornecedor: "+ fornecedora.nome+"\n";
-		}
+	}
 }
