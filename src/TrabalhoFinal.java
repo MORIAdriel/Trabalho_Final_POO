@@ -359,7 +359,7 @@ public class TrabalhoFinal {
 					}
 
 					if (aux == i) {
-						System.out.println("1 - Remover uma empresa\n" + 
+						System.out.println("1 - Remover empresa\n" + 
 								"2 - Remover um produto");
 						escolha = input.next();
 						if (escolha.equals("1")) {
@@ -368,9 +368,36 @@ public class TrabalhoFinal {
 							escolha = input.next();
 							if (escolha.equals("s")) {
 								empresas.remove(i);
+								 System.out.println("Empresa Removida!");
 							} 
 						} else if (escolha.equals("2")) {
 							// Aqui remove um produto de uma empresa
+							
+							if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
+								
+								System.out.println("Nenhum pruduto listado na empresa --" + empresas.get(i).nome + "--");
+								
+							}else {
+								
+								System.out.println("---LISTA DE PRODUTOS---");
+								for(int x=0; x<empresas.get(i).estoque.produtosEmEstoque.size(); x++) {
+									System.out.println(x + "-" + empresas.get(i).estoque.produtosEmEstoque.get(x).nomeProduto);
+								}
+								
+								System.out.println("Escolha o número refente ao produto a ser removido");
+								int escolhaProduto = input.nextInt();
+								
+								System.out.println("Tem certeza que deseja remover o produto " + escolhaProduto + " da empresa -"
+										+ empresas.get(i).nome +"- ? (\"s\" para sim)");
+								escolha = input.next();
+								
+								if (escolha.equals("s")) {
+									 empresas.get(i).estoque.produtosEmEstoque.remove(escolhaProduto);
+									 System.out.println("Produto Removido!");
+								}
+								
+							}
+							
 						} else {
 							System.out.println("Não existe essa opção");
 						}
@@ -410,8 +437,32 @@ public class TrabalhoFinal {
 								capacidadeMax + ";" + estado + ";" + cidade + ";" + bairro + ";";
 							pr.println(texto);
 							pr.flush();
+							
+							if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
+								continue;
+							} else {
+								for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size(); j++) {
+									pr.print("produto;");
+									
+									String nomeProduto = empresas.get(i).estoque.produtosEmEstoque.get(j).nomeProduto;
+									int quatidadeEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getQuatidadeEstoque();
+									double precoCusto = empresas.get(i).estoque.produtosEmEstoque.get(j).getPrecoCusto();
+									double precoVenda = empresas.get(i).estoque.produtosEmEstoque.get(j).precoVenda;
+									String dataUltimaCompraEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getDataUltimaCompraEstoque();
+									// Fornecedor
+									Empresa forenecedora = empresas.get(j).estoque.produtosEmEstoque.get(j).fornecedora; //Aqui imprimo o toString Fornecedor na lista	
+									//String forenecedora = empresas.get(j).nome; //Aqui o nome da empresa na prosição j	
+									//Ainda falta fazer o programa ler os produtos
+									
+									// Texto
+									String texto2 = nomeProduto + ";" + quatidadeEstoque + ";" + precoCusto + ";" + 
+											precoVenda + ";" + dataUltimaCompraEstoque + ";" + forenecedora + ";";
+									pr.println(texto2);
+									pr.flush();
+								}
+							}
 						}
-
+						
 						arquivo1.close();
 						pr.close();
 
