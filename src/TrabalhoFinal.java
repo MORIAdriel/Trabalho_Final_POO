@@ -10,18 +10,6 @@ import java.io.*;
  * @author Igor M. Padua e Adreil M. V. Mori
  */
 
-package trabalhoFinal;
-
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import java.util.Scanner;
-import java.io.*;
-
-/*
- * Classe principal do programa  
- * @author Igor M. Padua e Adreil M. V. Mori
- */
-
 public class TrabalhoFinal {
 	public static void main(String[] args) throws Exception {
 		ArrayList<Empresa> empresas = new ArrayList<Empresa>();
@@ -48,7 +36,7 @@ public class TrabalhoFinal {
 				//System.out.println(campos[0]);
 
 				if (campos[0].equals("loja")) {
-						
+
 					// Dados principais
 					nome = campos[1];
 					telefone = campos[2];
@@ -69,7 +57,7 @@ public class TrabalhoFinal {
 					empresas.add(loja);
 
 				} else if (campos[0].equals("fornecedor")) {
-	
+
 					// Dados principais
 					nome = campos[1];
 					telefone = campos[2];
@@ -96,11 +84,11 @@ public class TrabalhoFinal {
 			br.close();
 			in.close();
 			arquivo.close();
-	
+
 		} catch(Exception e){
-			System.out.println("Arquivo não existe");
+			throw new IllegalAccessError("Arquivo não existe");
 		}
-		
+
 		while (sair == true) {
 			escolha = JOptionPane.showInputDialog(null, 
 					"1 - Adicionar uma empresa\n" + 
@@ -153,7 +141,7 @@ public class TrabalhoFinal {
 						loja.endereco = endereco;
 
 						empresas.add(loja);
-
+			
 					} else if (escolha.equals("2")) { 
 
 						// Criação do fornecedor
@@ -428,7 +416,7 @@ public class TrabalhoFinal {
 						pr.close();
 
 					} catch(Exception e){
-						System.out.println("Não existe o arquivo");
+						throw new IllegalAccessError("Arquivo não existe");
 					}
 					sair = false;
 			}
