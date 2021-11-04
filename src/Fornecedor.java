@@ -11,10 +11,6 @@ public class Fornecedor extends Empresa {
 		super(nome, telefone, cnpj, razaoSocial);	
 	}
 
-	public void consulta(String nome) {
-
-	}
-
 	public void alteracaoCadastros() {
 
 	}

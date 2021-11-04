@@ -28,10 +28,6 @@ public class Estoque implements Funcoes {
 
 	}
 
-	public void consulta(String nome) {
-		
-	}
-
 	public void alteracaoCadastros() {
 		
 	}

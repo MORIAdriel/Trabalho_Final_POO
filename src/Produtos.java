@@ -24,10 +24,6 @@ public class Produtos{
 		this.fornecedora=fornecedora;
 	}
 
-	public void consulta(String nome) {
-
-	}
-
 	public void alteracaoCadastros() {
 
 	}
