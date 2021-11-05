@@ -48,8 +48,14 @@ public class Produtos {
 		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
 	}
 
-	public void alteracaoCadastros() {
-
+	public void alteracaoCadastrosProduto(String nomeProduto, int quatidadeEstoque, double precoCusto, double precoVenda,
+			String dataUltimaCompraEstoque, Empresa fornecedora) {
+		this.nomeProduto = nomeProduto;
+		this.quatidadeEstoque = quatidadeEstoque;
+		this.precoCusto = precoCusto;
+		this.precoVenda = precoVenda;
+		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
+		this.fornecedora = fornecedora;
 	}
 
 	public String toString() {
