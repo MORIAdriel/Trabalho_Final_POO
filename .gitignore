@@ -1,3 +1,5 @@
 *.class
 .directory
 Shell script/
+.classpath
+.project
