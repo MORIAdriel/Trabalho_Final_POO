@@ -453,7 +453,7 @@ public class TrabalhoFinal {
 						PrintWriter pr = new PrintWriter(arquivo1);
 						String texto;
 
-						/*for (i = 0; i < empresas.size(); i++) {
+						for (i = 0; i < empresas.size(); i++) {
 							
 							if (empresas.get(i) instanceof Fornecedor) {
 								
@@ -476,7 +476,7 @@ public class TrabalhoFinal {
 								pr.flush();
 								
 								if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
-									break;
+									continue;
 								} else {
 									for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size(); j++) {	
 											pr.print("produto;");
@@ -497,7 +497,7 @@ public class TrabalhoFinal {
 									}
 								}
 							}
-						}*/
+						}
 						
 						for (i = 0; i < empresas.size(); i++) {
 							
@@ -522,7 +522,7 @@ public class TrabalhoFinal {
 								pr.flush();
 								
 								if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
-									break;
+									continue;
 								} else {
 									for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size(); j++) {
 										
@@ -551,7 +551,7 @@ public class TrabalhoFinal {
 					} catch(Exception e){
 						throw new IllegalAccessError("Arquivo não existe");
 					}
-					sair = false;
+				sair = false;
 			}
 		}
 	}
