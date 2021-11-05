@@ -2,7 +2,7 @@ package src;
 
 /*
  * Essa classe testa se o construtor de Loja funciona corretamente
- * @author Igor M. Padua e Adreil M. V. Mori
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 import static org.junit.Assert.*;
