@@ -16,12 +16,7 @@ public class Produtos {
 
 	Produtos(String nomeProduto, int quatidadeEstoque, double precoCusto, double precoVenda,
 			String dataUltimaCompraEstoque, Empresa fornecedora) {
-		this.nomeProduto = nomeProduto;
-		this.quatidadeEstoque = quatidadeEstoque;
-		this.precoCusto = precoCusto;
-		this.precoVenda = precoVenda;
-		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
-		this.fornecedora = fornecedora;
+		alteracaoCadastrosProduto(nomeProduto, quatidadeEstoque, precoCusto, precoVenda, dataUltimaCompraEstoque, fornecedora);	
 	}
 	
 	public int getQuatidadeEstoque() {
@@ -60,11 +55,10 @@ public class Produtos {
 
 	public String toString() {
 
-		return "Produto: Nome do produto: " + nomeProduto +
+		return "Nome do produto: " + nomeProduto +
 			" - Quantidade em estoque: " + quatidadeEstoque +
 			" - Preço de custo: " + precoCusto +
 			" - Preço de venda: " + precoVenda +
-			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque +
-			" - Fornecedor: "+ fornecedora.nome +"\n";
+			" - Data da última ocorrência de compra: " + dataUltimaCompraEstoque;
 	}
 }

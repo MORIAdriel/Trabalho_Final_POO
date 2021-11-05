@@ -11,7 +11,7 @@ public class Estoque {
 
 	private int capacidadeMax;
 	ArrayList<Produtos> produtosEmEstoque = new ArrayList<>();
-	
+
 	Estoque(int capacidadeMax) {
 		setCapacidadeMax(capacidadeMax);
 	}
@@ -25,13 +25,13 @@ public class Estoque {
 	}
 
 	public boolean verificaEstoque(int capacidadeMax, int total) {
-		
+
 		if(capacidadeMax<total) return false;
 		else return true;
 	}
-	
+
 	public boolean verificaCompra(int quantidadeVendida, int estoqueFornecedor) {
-		
+
 		if(quantidadeVendida>estoqueFornecedor) return false;
 		else return true;
 	}

@@ -568,9 +568,17 @@ public class TrabalhoFinal {
 					if (empresas.size() == 0) {
 						System.out.println("Não existem empresas");	
 					} else {
+						System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 						for (i = 0; i < empresas.size(); i++) {
 							System.out.println(empresas.get(i));
-							System.out.println(empresas.get(i).estoque.produtosEmEstoque);
+							for (int j = 0; j < empresas.get(i).estoque.produtosEmEstoque.size(); j++) {
+								System.out.print(empresas.get(i).estoque.produtosEmEstoque.get(j));
+								if (empresas.get(i) instanceof Loja) {
+									System.out.print(" - Fornecedora: " + empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora.nome);
+								}
+								System.out.println();
+							}
+							System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 						}
 	
 					}
