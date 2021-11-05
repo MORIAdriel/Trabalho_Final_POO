@@ -29,6 +29,12 @@ public class Estoque {
 		if(capacidadeMax<total) return false;
 		else return true;
 	}
+	
+	public boolean verificaCompra(int quantidadeVendida, int estoqueFornecedor) {
+		
+		if(quantidadeVendida>estoqueFornecedor) return false;
+		else return true;
+	}
 
 	public String toString() {
 		return "Capacidade máxima: " + capacidadeMax;
