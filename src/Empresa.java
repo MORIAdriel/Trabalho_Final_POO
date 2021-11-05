@@ -2,7 +2,7 @@ package src;
 
 /*
  * Uma classe abstrata que representa uma empresa
- * @author Igor M. Padua e Adreil M. V. Mori
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 public abstract class Empresa {
