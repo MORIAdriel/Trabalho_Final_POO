@@ -3,8 +3,8 @@ package src;
 import java.util.ArrayList;
 
 /*
- * Uma classe Estoque que contem os produtos de uma Loja ou fornecedor 
- * @author Igor M. Padua e Adreil M. V. Mori
+ * Uma classe Estoque que contem os produtos de uma Loja 
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 public class Estoque {
@@ -24,8 +24,10 @@ public class Estoque {
 		this.capacidadeMax = capacidadeMax;
 	}
 
-	public boolean verificaEstoque() {
-		return false;
+	public boolean verificaEstoque(int capacidadeMax, int total) {
+		
+		if(capacidadeMax<total) return false;
+		else return true;
 	}
 
 	public String toString() {
