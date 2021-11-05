@@ -1,3 +1,12 @@
-loja;Marcos;623241234;3452;Venda de produtos;200;Goías;Goiânia;Setor sul;
-fornecedor;Coca;62932453;239;Refrigerante;1000;São Paulo; São Paulo;Centro;
+fornecedor;Coca;62932453;239;Refrigerante;1000;SÃ£o Paulo; SÃ£o Paulo;Centro;
+fornecedor;PeG;6546465464;5000946409;S.A;5000;Cincinnati;Ohio;Mount Adams;
+fornecedor;Ambev;32965874;07.526.557/0001-00;S.A;10000000;São Paulo;São Paulo;Setor Paulista;
+loja;Bretas;546516516;5451;Varejista;500;Goiás;Goiânia;Alphaville;
+loja;Marcos;623241234;3452;Venda de produtos;200;GoÃ­as;GoiÃ¢nia;Setor sul;
+produto;Skol;95;34.0;34.0;23;Ambev;
+produto;Coca-cola;95;12.0;2.0;12;Coca;
+produto;Antartica;9;34.0;23.0;35;Ambev;
+loja;Carrefour;54151651;61651651;S.A;2000;Minas;Uberlandia;Centro;
+produto;Petra;90;23.0;23.0;23;Ambev;
+produto;Pringles;3;3.0;12.0;120;PeG;
 
