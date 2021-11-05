@@ -453,53 +453,98 @@ public class TrabalhoFinal {
 						PrintWriter pr = new PrintWriter(arquivo1);
 						String texto;
 
+						/*for (i = 0; i < empresas.size(); i++) {
+							
+							if (empresas.get(i) instanceof Fornecedor) {
+								
+								pr.print("fornecedor;");	
+								
+								nome = empresas.get(i).nome;
+								telefone = empresas.get(i).telefone;
+								cnpj = empresas.get(i).cnpj;
+								razaoSocial = empresas.get(i).razaoSocial;
+								// Estoque
+								capacidadeMax = empresas.get(i).estoque.getCapacidadeMax();	
+								// Endereço
+								estado = empresas.get(i).endereco.estado;
+								cidade = empresas.get(i).endereco.cidade;
+								bairro = empresas.get(i).endereco.bairro;
+
+								texto = nome + ";" + telefone + ";" + cnpj + ";" + razaoSocial + ";" +
+									capacidadeMax + ";" + estado + ";" + cidade + ";" + bairro + ";";
+								pr.println(texto);
+								pr.flush();
+								
+								if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
+									break;
+								} else {
+									for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size(); j++) {	
+											pr.print("produto;");
+											
+											String nomeProduto = empresas.get(i).estoque.produtosEmEstoque.get(j).nomeProduto;
+											int quatidadeEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getQuatidadeEstoque();
+											double precoCusto = empresas.get(i).estoque.produtosEmEstoque.get(j).getPrecoCusto();
+											double precoVenda = empresas.get(i).estoque.produtosEmEstoque.get(j).precoVenda;
+											String dataUltimaCompraEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getDataUltimaCompraEstoque();
+											// Fornecedor
+											String forenecedora = empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora.nome; //Aqui imprimo o nome do fornecedor
+											
+											// Texto
+											String texto2 = nomeProduto + ";" + quatidadeEstoque + ";" + precoCusto + ";" + 
+													precoVenda + ";" + dataUltimaCompraEstoque + ";" + forenecedora + ";";
+											pr.println(texto2);
+											pr.flush();
+									}
+								}
+							}
+						}*/
+						
 						for (i = 0; i < empresas.size(); i++) {
 							
 							if (empresas.get(i) instanceof Loja) {
-								pr.print("loja;");
-							} else {
-								pr.print("fornecedor;");
-							}
+								
+								pr.print("loja;");	
+								
+								nome = empresas.get(i).nome;
+								telefone = empresas.get(i).telefone;
+								cnpj = empresas.get(i).cnpj;
+								razaoSocial = empresas.get(i).razaoSocial;
+								// Estoque
+								capacidadeMax = empresas.get(i).estoque.getCapacidadeMax();	
+								// Endereço
+								estado = empresas.get(i).endereco.estado;
+								cidade = empresas.get(i).endereco.cidade;
+								bairro = empresas.get(i).endereco.bairro;
 
-							nome = empresas.get(i).nome;
-							telefone = empresas.get(i).telefone;
-							cnpj = empresas.get(i).cnpj;
-							razaoSocial = empresas.get(i).razaoSocial;
-							// Estoque
-							capacidadeMax = empresas.get(i).estoque.getCapacidadeMax();	
-							// Endereço
-							estado = empresas.get(i).endereco.estado;
-							cidade = empresas.get(i).endereco.cidade;
-							bairro = empresas.get(i).endereco.bairro;
-
-							texto = nome + ";" + telefone + ";" + cnpj + ";" + razaoSocial + ";" +
-								capacidadeMax + ";" + estado + ";" + cidade + ";" + bairro + ";";
-							pr.println(texto);
-							pr.flush();
-							
-							if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
-								continue;
-							} else {
-								for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size(); j++) {
-									pr.print("produto;");
-									
-									String nomeProduto = empresas.get(i).estoque.produtosEmEstoque.get(j).nomeProduto;
-									int quatidadeEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getQuatidadeEstoque();
-									double precoCusto = empresas.get(i).estoque.produtosEmEstoque.get(j).getPrecoCusto();
-									double precoVenda = empresas.get(i).estoque.produtosEmEstoque.get(j).precoVenda;
-									String dataUltimaCompraEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getDataUltimaCompraEstoque();
-									// Fornecedor
-									String forenecedora = empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora.nome; //Aqui imprimo o nome do fornecedor
-									
-									// Texto
-									String texto2 = nomeProduto + ";" + quatidadeEstoque + ";" + precoCusto + ";" + 
-											precoVenda + ";" + dataUltimaCompraEstoque + ";" + forenecedora + ";";
-									pr.println(texto2);
-									pr.flush();
+								texto = nome + ";" + telefone + ";" + cnpj + ";" + razaoSocial + ";" +
+									capacidadeMax + ";" + estado + ";" + cidade + ";" + bairro + ";";
+								pr.println(texto);
+								pr.flush();
+								
+								if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
+									break;
+								} else {
+									for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size(); j++) {
+										
+											pr.print("produto;");
+											
+											String nomeProduto = empresas.get(i).estoque.produtosEmEstoque.get(j).nomeProduto;
+											int quatidadeEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getQuatidadeEstoque();
+											double precoCusto = empresas.get(i).estoque.produtosEmEstoque.get(j).getPrecoCusto();
+											double precoVenda = empresas.get(i).estoque.produtosEmEstoque.get(j).precoVenda;
+											String dataUltimaCompraEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getDataUltimaCompraEstoque();
+											// Fornecedor
+											String forenecedora = empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora.nome; //Aqui imprimo o nome do fornecedor
+											
+											// Texto
+											String texto2 = nomeProduto + ";" + quatidadeEstoque + ";" + precoCusto + ";" + 
+													precoVenda + ";" + dataUltimaCompraEstoque + ";" + forenecedora + ";";
+											pr.println(texto2);
+											pr.flush();
+									}
 								}
 							}
 						}
-						
 						arquivo1.close();
 						pr.close();
 
