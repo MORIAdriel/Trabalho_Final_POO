@@ -2,7 +2,7 @@ package src;
 
 /*
  * Uma classe que representa um produto de uma loja ou estoque  
- * @author Igor M. Padua e Adreil M. V. Mori
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 public class Produtos {
@@ -23,7 +23,7 @@ public class Produtos {
 		this.dataUltimaCompraEstoque = dataUltimaCompraEstoque;
 		this.fornecedora = fornecedora;
 	}
-
+	
 	public int getQuatidadeEstoque() {
 		return quatidadeEstoque;
 	}
