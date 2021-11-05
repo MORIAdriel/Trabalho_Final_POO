@@ -261,13 +261,15 @@ public class TrabalhoFinal {
 								input = new Scanner(System.in);
 								System.out.println("Qual a quantidade de estoque ?");
 								int quantidadeEstoque = input.nextInt();
+								int total=0;
+								total=quantidadeEstoque;
 								
 								//Calculando estoque total antes de adicionar produto
 								for(int s=0;s<empresas.get(i).estoque.produtosEmEstoque.size(); s++) {
-									quantidadeEstoque+=empresas.get(i).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
+									total+=empresas.get(i).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
 								}
 								
-								if (empresas.get(i).estoque.verificaEstoque(empresas.get(i).estoque.getCapacidadeMax(), quantidadeEstoque)==false) {
+								if (empresas.get(i).estoque.verificaEstoque(empresas.get(i).estoque.getCapacidadeMax(), total)==false) {
 									
 									System.out.println("O estoque da loja -" + empresas.get(i).nome + "- está cheio!");
 									break;
@@ -487,9 +489,7 @@ public class TrabalhoFinal {
 									double precoVenda = empresas.get(i).estoque.produtosEmEstoque.get(j).precoVenda;
 									String dataUltimaCompraEstoque = empresas.get(i).estoque.produtosEmEstoque.get(j).getDataUltimaCompraEstoque();
 									// Fornecedor
-									String forenecedora = empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora.nome; //Aqui imprimo o toString Fornecedor na lista	
-									//String forenecedora = empresas.get(j).nome; //Aqui o nome da empresa na prosição j	
-									//Ainda falta fazer o programa ler os produtos
+									String forenecedora = empresas.get(i).estoque.produtosEmEstoque.get(j).fornecedora.nome; //Aqui imprimo o nome do fornecedor
 									
 									// Texto
 									String texto2 = nomeProduto + ";" + quatidadeEstoque + ";" + precoCusto + ";" + 
