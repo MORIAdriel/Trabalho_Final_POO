@@ -7,7 +7,7 @@ import java.io.*;
 
 /*
  * Classe principal do programa  
- * @author Igor M. Padua e Adreil M. V. Mori
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 public class TrabalhoFinal {
@@ -20,7 +20,7 @@ public class TrabalhoFinal {
 		// Usado para criar uma Empresa
 		String nome, telefone, cnpj, razaoSocial;
 		String bairro, cidade, estado;
-		int capacidadeMax;
+		int capacidadeMax, id=0;
 
 		// Ler o arquivo
 		try {
@@ -29,34 +29,14 @@ public class TrabalhoFinal {
 			BufferedReader br = new BufferedReader(in);
 
 			String linha = br.readLine();
+			int contador=-1;
 
 			while (linha != null) {
 				String[] campos = linha.split(";");
 
-				//System.out.println(campos[0]);
+				//System.out.println(campos[0])
 
-				if (campos[0].equals("loja")) {
-
-					// Dados principais
-					nome = campos[1];
-					telefone = campos[2];
-					cnpj = campos[3];
-					razaoSocial = campos[4];
-					Loja loja = new Loja(nome, telefone, cnpj, razaoSocial);
-					// Estoque
-					capacidadeMax = Integer.parseInt(campos[5]);
-					Estoque estoque = new Estoque(capacidadeMax);
-					loja.estoque = estoque;
-					// Endereço
-					estado = campos[6];
-					cidade = campos[7];
-					bairro = campos[8];
-					Endereco endereco = new Endereco(bairro, cidade, estado);
-					loja.endereco = endereco;
-
-					empresas.add(loja);
-
-				} else if (campos[0].equals("fornecedor")) {
+					if (campos[0].equals("fornecedor")) {
 
 					// Dados principais
 					nome = campos[1];
@@ -75,9 +55,54 @@ public class TrabalhoFinal {
 					Endereco endereco = new Endereco(bairro, cidade, estado);
 					fornecedor.endereco = endereco;
 
-					empresas.add(fornecedor);
-				}
+					empresas.add(fornecedor); contador++;
+					
+				} else if (campos[0].equals("loja")) {
 
+					// Dados principais
+					nome = campos[1];
+					telefone = campos[2];
+					cnpj = campos[3];
+					razaoSocial = campos[4];
+					Loja loja = new Loja(nome, telefone, cnpj, razaoSocial);
+					// Estoque
+					capacidadeMax = Integer.parseInt(campos[5]);
+					Estoque estoque = new Estoque(capacidadeMax);
+					loja.estoque = estoque;
+					// Endereço
+					estado = campos[6];
+					cidade = campos[7];
+					bairro = campos[8];
+					Endereco endereco = new Endereco(bairro, cidade, estado);
+					loja.endereco = endereco;
+					
+					empresas.add(loja); contador++;
+					
+				} if(campos[0].equals("produto")) {
+						
+					// Dados principais
+						String nomeProduto= campos[1];
+						int quatidadeEstoque= Integer.parseInt(campos[2]);
+						double precoCusto= Double.parseDouble(campos[3]);
+						double precoVenda= Double.parseDouble(campos[4]);
+						String dataUltimaCompraEstoque= campos[5];
+						String fornecedorAux = campos[6];
+							
+						for(int p=0; p<empresas.size();p++) {
+							if(empresas.get(p).nome.equals(fornecedorAux)) {
+									
+								id=p;
+								break;
+							} 			
+						} 
+						
+						Produtos produto = new Produtos(nomeProduto, quatidadeEstoque, 
+								precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(id));
+								
+						empresas.get(contador).estoque.produtosEmEstoque.add(produto);
+							
+					} 
+			
 				linha = br.readLine();
 			}
 
@@ -236,18 +261,30 @@ public class TrabalhoFinal {
 								input = new Scanner(System.in);
 								System.out.println("Qual a quantidade de estoque ?");
 								int quantidadeEstoque = input.nextInt();
-								System.out.println("Qual o preço de custo ?");
-								double precoCusto = input.nextDouble();
-								System.out.println("Qual o preço de venda ?");
-								double precoVenda = input.nextDouble();
-								input = new Scanner(System.in);
-								System.out.println("Qual a data de compra ?");
-								String dataUltimaCompraEstoque = input.nextLine();
 								
-								Produtos produto = new Produtos(nomeProduto, quantidadeEstoque, 
-										precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
+								//Calculando estoque total antes de adicionar produto
+								for(int s=0;s<empresas.get(i).estoque.produtosEmEstoque.size(); s++) {
+									quantidadeEstoque+=empresas.get(i).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
+								}
 								
-								empresas.get(i).estoque.produtosEmEstoque.add(produto);
+								if (empresas.get(i).estoque.verificaEstoque(empresas.get(i).estoque.getCapacidadeMax(), quantidadeEstoque)==false) {
+									
+									System.out.println("O estoque da loja -" + empresas.get(i).nome + "- está cheio!");
+									break;
+								} else
+								
+									System.out.println("Qual o preço de custo ?");
+									double precoCusto = input.nextDouble();
+									System.out.println("Qual o preço de venda ?");
+									double precoVenda = input.nextDouble();
+									input = new Scanner(System.in);
+									System.out.println("Qual a data de compra ? (formatação: XX/YY/ZZZZ)");
+									String dataUltimaCompraEstoque = input.nextLine();
+									
+									Produtos produto = new Produtos(nomeProduto, quantidadeEstoque, 
+											precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
+									
+									empresas.get(i).estoque.produtosEmEstoque.add(produto);
 							}
 							
 						} else 
