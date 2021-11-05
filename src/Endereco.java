@@ -2,7 +2,7 @@ package src;
 
 /*
  * Uma classe que contem os dados de um endereço
- * @author Igor M. Padua e Adreil M. V. Mori
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 public class Endereco {
