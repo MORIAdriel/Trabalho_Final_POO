@@ -529,10 +529,11 @@ public class TrabalhoFinal {
 										
 										System.out.println("O estoque da loja -" + empresas.get(i).nome + "- está cheio!");
 										break;
-									} else
-										
+									} else {
+
 										input = new Scanner(System.in);
-										
+										int novoFornecedor;
+
 										System.out.println("Qual o novo preço de custo ?");
 										double precoCusto = input.nextDouble();
 										System.out.println("Qual o novo preço de venda ?");
@@ -540,18 +541,22 @@ public class TrabalhoFinal {
 										input = new Scanner(System.in);
 										System.out.println("Qual a nova data da compra ? (formatação: XX/YY/ZZZZ)");
 										String dataUltimaCompraEstoque = input.nextLine();
-										System.out.println("Qual o novo Fornecedor ?");
-										
-										for(int j=0; j<empresas.size(); j++) {
-											if(empresas.get(j) instanceof Fornecedor) {
-												System.out.println(j+" - " + empresas.get(j).nome);
-											} else continue;
+
+										novoFornecedor = i;
+										if (empresas.get(i) instanceof Loja) {
+											System.out.println("Qual o novo Fornecedor ?");
+
+											for(int j=0; j<empresas.size(); j++) {
+												if(empresas.get(j) instanceof Fornecedor) {
+													System.out.println(j+" - " + empresas.get(j).nome);
+												} else continue;
+											}
+											novoFornecedor = input.nextInt();
 										}
-										
-										int novoFornecedor = input.nextInt();
-										
 										empresas.get(i).estoque.produtosEmEstoque.get(escolhaProduto).alteracaoCadastrosProduto(empresas.get(i).estoque.produtosEmEstoque.get(escolhaProduto).nomeProduto,
 												quantidadeEstoque, precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(novoFornecedor));
+
+									}
 								}
 								
 							}
