@@ -532,7 +532,7 @@ public class TrabalhoFinal {
 									} else {
 
 										input = new Scanner(System.in);
-										int novoFornecedor;
+										int novoFornecedor = i;
 
 										System.out.println("Qual o novo preço de custo ?");
 										double precoCusto = input.nextDouble();
@@ -542,7 +542,6 @@ public class TrabalhoFinal {
 										System.out.println("Qual a nova data da compra ? (formatação: XX/YY/ZZZZ)");
 										String dataUltimaCompraEstoque = input.nextLine();
 
-										novoFornecedor = i;
 										if (empresas.get(i) instanceof Loja) {
 											System.out.println("Qual o novo Fornecedor ?");
 
