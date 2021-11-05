@@ -2,7 +2,7 @@ package src;
 
 /*
  * Uma classe que representa uma loja  
- * @author Igor M. Padua e Adreil M. V. Mori
+ * @author Igor M. Padua e Adriel L. V. Mori
  */
 
 public class Loja extends Empresa {
