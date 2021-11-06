@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<XMI xmi.version="1.2" timestamp="2021-10-18T21:58:31" verified="false" xmlns:UML="http://schema.omg.org/spec/UML/1.4">
+<XMI xmi.version="1.2" timestamp="2021-11-06T11:22:18" verified="false" xmlns:UML="http://schema.omg.org/spec/UML/1.4">
  <XMI.header>
   <XMI.documentation>
    <XMI.exporter>umbrello uml modeller 2.32.2 http://umbrello.kde.org</XMI.exporter>
@@ -39,7 +39,7 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams resolution="96">
-       <diagram xmi.id="udmiuYZGq2mLW" name="diagrama de classe" type="1" documentation="" backgroundcolor="#ffffff" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" griddotcolor="#d3d3d3" linecolor="#ff0000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="0" canvaswidth="0" isopen="0">
+       <diagram xmi.id="udmiuYZGq2mLW" name="diagrama de classe" type="1" documentation="" backgroundcolor="#ffffff" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" griddotcolor="#d3d3d3" linecolor="#ff0000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="100" canvasheight="0" canvaswidth="0" isopen="1">
         <widgets/>
         <messages/>
         <associations/>
@@ -104,13 +104,12 @@
      </UML:Namespace.ownedElement>
      <XMI.extension xmi.extender="umbrello">
       <diagrams resolution="96">
-       <diagram xmi.id="u97kgU6xScnyV" name="diagrama do caso de uso" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" griddotcolor="#d3d3d3" linecolor="#ff0000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="72.631" canvasheight="479.734" canvaswidth="1000.89" isopen="1">
+       <diagram xmi.id="u97kgU6xScnyV" name="diagrama do caso de uso" type="2" documentation="" backgroundcolor="#ffffff" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" griddotcolor="#d3d3d3" linecolor="#ff0000" linewidth="0" textcolor="#000000" usefillcolor="1" showattribassocs="1" showatts="1" showattsig="1" showops="1" showopsig="1" showpackage="1" showpubliconly="0" showscope="1" showstereotype="2" localid="-1" showgrid="0" snapgrid="0" snapcsgrid="0" snapx="25" snapy="25" zoom="96" canvasheight="479.734" canvaswidth="1000.89" isopen="1">
         <widgets>
-         <floatingtext xmi.id="uljvJgkXoNeDv" localid="u4RpyXSemTdHb" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-687.423" y="-406.377" width="46" height="22" isinstance="0" showstereotype="2" text="Vende" pretext="" posttext="" role="700"/>
-         <floatingtext xmi.id="ufXKMlCpG3Als" localid="uFZDt6VSjfxbR" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-123.79" y="-402.129" width="57" height="22" isinstance="0" showstereotype="2" text="Compra" pretext="" posttext="" role="700"/>
-         <usecasewidget xmi.id="uF7mn1m20LAIv" localid="udihlrTrXxXPA" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="37.1284" y="-407.303" width="117" height="53" isinstance="0" showstereotype="2"/>
          <floatingtext xmi.id="uW3sm58tQutRi" localid="uYVMqT2nUhQLf" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-306.473" y="-397.449" width="46" height="22" isinstance="0" showstereotype="2" text="Vende" pretext="" posttext="" role="700"/>
+         <floatingtext xmi.id="uljvJgkXoNeDv" localid="u4RpyXSemTdHb" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-687.423" y="-406.377" width="46" height="22" isinstance="0" showstereotype="2" text="Vende" pretext="" posttext="" role="700"/>
          <usecasewidget xmi.id="u2bK94cm0S1Bh" localid="uz0Jo5sKqaPjh" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-608.087" y="-407.303" width="99" height="53" isinstance="0" showstereotype="2"/>
+         <usecasewidget xmi.id="uF7mn1m20LAIv" localid="udihlrTrXxXPA" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="37.1284" y="-407.303" width="117" height="53" isinstance="0" showstereotype="2"/>
          <actorwidget xmi.id="upq7rq7cDLaPp" localid="uQox5XKNNlfnw" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-839.192" y="-421.803" width="82" height="82" isinstance="0" showstereotype="2"/>
          <actorwidget xmi.id="u9A6XwQwPJPZA" localid="uAq3qAAIGa029" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="0" x="-60.9371" y="-419.751" width="77.8969" height="77.8969" isinstance="0" showstereotype="2"/>
          <usecasewidget xmi.id="usUWwoZGP974u" localid="u4bAnApEp28EG" textcolor="#000000" linecolor="#ff0000" linewidth="0" usefillcolor="1" usesdiagramfillcolor="0" usesdiagramusefillcolor="0" fillcolor="#ffff00" font="Noto Sans,10,-1,5,50,0,0,0,0,0,Regular" autoresize="1" x="-626.225" y="-305.621" width="140" height="53" isinstance="0" showstereotype="2"/>
@@ -194,7 +193,7 @@
   </UML:Model>
  </XMI.content>
  <XMI.extensions xmi.extender="umbrello">
-  <docsettings viewid="u97kgU6xScnyV" documentation="" uniqueid="uyuEt6akyZSqE"/>
+  <docsettings viewid="u97kgU6xScnyV" documentation="" uniqueid="uaSZAnOa4AbAA"/>
   <listview>
    <listitem id="Views" type="800" open="1">
     <listitem id="Entity_Relationship_Model" type="836" open="1"/>
