@@ -34,8 +34,6 @@ public class TrabalhoFinal {
 			while (linha != null) {
 				String[] campos = linha.split(";");
 
-				//System.out.println(campos[0])
-
 					if (campos[0].equals("fornecedor")) {
 
 					// Dados principais
@@ -81,27 +79,27 @@ public class TrabalhoFinal {
 				} if(campos[0].equals("produto")) {
 						
 					// Dados principais
-						String nomeProduto= campos[1];
-						int quatidadeEstoque= Integer.parseInt(campos[2]);
-						double precoCusto= Double.parseDouble(campos[3]);
-						double precoVenda= Double.parseDouble(campos[4]);
-						String dataUltimaCompraEstoque= campos[5];
-						String fornecedorAux = campos[6];
-							
-						for(int p=0; p<empresas.size();p++) {
-							if(empresas.get(p).nome.equals(fornecedorAux)) {
-									
-								id=p;
-								break;
-							} 			
-						} 
-						
-						Produtos produto = new Produtos(nomeProduto, quatidadeEstoque, 
-								precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(id));
-								
-						empresas.get(contador).estoque.produtosEmEstoque.add(produto);
-							
+					String nomeProduto= campos[1];
+					int quatidadeEstoque= Integer.parseInt(campos[2]);
+					double precoCusto= Double.parseDouble(campos[3]);
+					double precoVenda= Double.parseDouble(campos[4]);
+					String dataUltimaCompraEstoque= campos[5];
+					String fornecedorAux = campos[6];
+
+					for(int p=0; p<empresas.size();p++) {
+						if(empresas.get(p).nome.equals(fornecedorAux)) {
+
+							id=p;
+							break;
+						} 			
 					} 
+
+					Produtos produto = new Produtos(nomeProduto, quatidadeEstoque, 
+							precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(id));
+
+					empresas.get(contador).estoque.produtosEmEstoque.add(produto);
+
+				} 
 			
 				linha = br.readLine();
 			}
@@ -468,7 +466,7 @@ public class TrabalhoFinal {
 							empresas.get(i).endereco.alteracaoCadastros(estado, cidade, bairro);
 
 						} else if (escolha.equals("3")) {
-							// Aqui troca a capacidade máxima do estoque é os dados do produto
+							// Aqui troca a capacidade máxima do estoque e os dados do produto
 				
 							System.out.println("1 - Mudar Capacidade total\n" +
 									"2 - Alterar dados de um produto");
@@ -542,6 +540,7 @@ public class TrabalhoFinal {
 										System.out.println("Qual a nova data da compra ? (formatação: XX/YY/ZZZZ)");
 										String dataUltimaCompraEstoque = input.nextLine();
 
+										// Apenas lojas podem trocar fornecedor
 										if (empresas.get(i) instanceof Loja) {
 											System.out.println("Qual o novo Fornecedor ?");
 
@@ -654,7 +653,10 @@ public class TrabalhoFinal {
 
 					break;
 				case "7":
-					// Escrita no arquivo
+					
+					/*
+					 * Aqui o programa é fechado e é gravado os dados do programa 
+					 */ 
 					try {
 						
 						FileWriter arquivo1 = new FileWriter("Dados.txt");
