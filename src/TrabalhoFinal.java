@@ -406,7 +406,7 @@ public class TrabalhoFinal {
 									lista+="FORNECEDOR --"+ empresas.get(i).nome +"--\n";
 									
 									if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
-										lista+="Nenhum produto no sistema";
+										lista+="Nenhum produto no sistema\n";
 									} else
 										for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size();j++) {
 											lista+=empresas.get(i).estoque.produtosEmEstoque.get(j).nomeProduto+
@@ -545,7 +545,7 @@ public class TrabalhoFinal {
 								//adicionando unidades a um produto na existente
 								
 								int numProdutos=0, produtoTransferido=0;
-								System.out.println("--Lista de produtos no sistema--");
+								System.out.println("--Lista de produtos no sistema da Loja--");
 								
 								for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {
 									System.out.println("Nome: "+empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto+
@@ -664,11 +664,16 @@ public class TrabalhoFinal {
 					input = new Scanner(System.in);
 					
 					for(i=0; i<empresas.size();i++) {
-						if(empresas.get(i) instanceof Loja && empresas.get(i).endereco.cidade.equals(localCidade) && empresas.get(i).endereco.bairro.equals(localBairro)) {
+						if(empresas.get(i).endereco.cidade.equals(localCidade) && empresas.get(i).endereco.bairro.equals(localBairro)) {
 							contadorLoja++;
-							System.out.println("------------------------------\n"
-												+"Empresa " +contadorLoja+": "+empresas.get(i).nome
-												+ "\nProdutos:");
+							
+							System.out.println("------------------------------\n");
+							
+							if(empresas.get(i) instanceof Loja) {
+								System.out.print("Loja: ");
+							} else System.out.print("Fornecedor: ");
+							
+							System.out.println(empresas.get(i).nome + "\nProdutos:");
 							if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
 								System.out.println("Não consta produtos nesta loja!");
 							} else
@@ -680,7 +685,13 @@ public class TrabalhoFinal {
 						} 
 					}
 					
+					System.out.println("------------------------------\n");
+					
 					if(contadorLoja==0) System.out.println("Não existe lojas na sua localização!");
+					
+					System.out.println("\n\nPressione ENTER para continuar");
+					
+					String time = input.nextLine();//mostrar o gráfico
 					
 					break;
 				case "4":
@@ -733,7 +744,7 @@ public class TrabalhoFinal {
 							System.out.println("Trocar bairro: (Atual = " + empresas.get(i).endereco.bairro + ")");		
 							bairro = input.nextLine();
 
-							empresas.get(i).endereco.alteracaoCadastros(estado, cidade, bairro);
+							empresas.get(i).endereco.alteracaoCadastros(bairro, cidade, estado);
 
 						} else if (escolha.equals("3")) {
 							// Aqui troca a capacidade máxima do estoque e os dados do produto
@@ -971,7 +982,7 @@ public class TrabalhoFinal {
 					
 					System.out.println("Pressione ENTER para continuar");
 					
-					String time = input.nextLine();//mostrar o gráfico
+					time = input.nextLine();//mostrar o gráfico
 					
 					break;
 					
