@@ -120,7 +120,7 @@ public class TrabalhoFinal {
 		while (sair == true) {
 			escolha = JOptionPane.showInputDialog(null, 
 					"1 - Adicionar uma empresa\n" + 
-					"2 - Adicionar um produto\n" +
+					"2 - Administra produtos\n" +
 					"3 - Procurar um produto por endereço\n" +
 					"4 - Modificar algum dado\n" +
 					"5 - Mostrar dados das empresas\n" +
@@ -213,7 +213,7 @@ public class TrabalhoFinal {
 					/*
 					 * Aqui o usuário poderá adicionar um produto a alguma empresa
 					 */
-					System.out.println("\n-------ADICIONANDO PRODUTOS--------");
+					System.out.println("\n-------ADMINISTRANDO PRODUTOS--------");
 					
 					if(empresas.isEmpty()) {
 						
@@ -240,23 +240,47 @@ public class TrabalhoFinal {
 							
 						}
 						
-						//Caso de entrada produtos para fornecedor
+						/*
+						//Caso de entrada produtos para Loja
+						 * 
+						 */
 						if(empresas.get(cont) instanceof Fornecedor) {
 							
 							System.out.println("Adicionando Produtos ao fornecedor -"+empresas.get(cont).nome+"-");
+							input = new Scanner(System.in);
 							
-							System.out.println("Quantos produtos serão adicionados ?");
-							int num = input.nextInt();
+							System.out.println("1 - Adicionar novo produto\n"
+									+ "2 - Aumentar estoque do produto");
 							
-							for(int p=0;p<num;p++) {
+							int opcaoAdicionar = input.nextInt();
+							
+							switch(opcaoAdicionar) {
 								
-								System.out.println("---Produto "+ (p+1) +" ---");
+							case 1:
+								//Adicionando Produtos ainda não listados no sistema
+								System.out.println("Quantos produtos serão adicionados ?");
+								int num = input.nextInt();
+								int identificaExistente=0;
 								
-								input = new Scanner(System.in);
-								System.out.println("Qual o nome do produto ?");
-								String nomeProduto = input.nextLine();
-								
-								if(empresas.get(cont).estoque.produtosEmEstoque.isEmpty()) {
+								for(int p=0;p<num;p++) {
+									
+									System.out.println("---Produto "+ (p+1) +" ---");
+									
+									input = new Scanner(System.in);
+									System.out.println("Qual o nome do produto ?");
+									String nomeProduto = input.nextLine();
+									
+									for(int a=0; a<empresas.get(cont).estoque.produtosEmEstoque.size();a++) {
+										if(empresas.get(cont).estoque.produtosEmEstoque.get(a).nomeProduto.equals(nomeProduto)) {
+											identificaExistente++;
+										}		
+									}
+									
+									if(identificaExistente!=0) {
+										System.out.println("Produto já existe no sistema em seu estoque");
+										
+										break;
+									}
 									
 									input = new Scanner(System.in);
 									System.out.println("Qual a quantidade do produto ?");
@@ -287,89 +311,111 @@ public class TrabalhoFinal {
 												precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont));
 										
 										empresas.get(cont).estoque.produtosEmEstoque.add(produto);
-										
-								} else
-								
-									//Verificando se ja existe o produto no fornecedor
-									for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {
-										
-										if(empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProduto)) {
-											
-											//Produto já existe no estoque, então iremos adicionar
-											System.out.println("Estoque atual do produto: " + empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque());
-										
-											input = new Scanner(System.in);
-											System.out.println("Qual a quantidade a se adicionar deste produto no estoque ?");
-											int quantidadeEstoque = input.nextInt();
-											int total=0, acumulado=0;
-											
-											total= quantidadeEstoque;
-											acumulado=quantidadeEstoque+empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
-											
-											//Calculando estoque total antes de adicionar produto
-											for(int a=0;a<empresas.get(cont).estoque.produtosEmEstoque.size(); a++) {
-												total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
-											}
-											
-											if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
-												
-												System.out.println("O estoque do fornecedor -" + empresas.get(cont).nome + "- está cheio!");
-												break;
-											} else
-												
-												System.out.println("Qual o novo preço de custo ?");
-												double precoCusto = input.nextDouble();
-												System.out.println("Qual o novo preço de venda ?");
-												double precoVenda = input.nextDouble();
-												input = new Scanner(System.in);
-												System.out.println("Qual a data de produção ? (formatação: XX/YY/ZZZZ)");
-												String dataUltimaCompraEstoque = input.nextLine();
-												
-												empresas.get(cont).estoque.produtosEmEstoque.get(s).alteracaoCadastrosProduto(nomeProduto,
-														acumulado, precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont));
-								
-											
-												} else if(empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto!=nomeProduto) {
-													
-													//Adicionando um novo produto em Fornecedor
-													input = new Scanner(System.in);
-													System.out.println("Qual a quantidade do produto ?");
-													int quantidadeEstoque = input.nextInt();
-													int total=0;
-													total=quantidadeEstoque;
-													
-													//Calculando estoque total do fornecedor antes de adicionar produto
-													for(int a=0;a<empresas.get(cont).estoque.produtosEmEstoque.size(); a++) {
-														total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
-													}
-													
-													if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
-														
-														System.out.println("O estoque do fornecedor -" + empresas.get(cont).nome + "- está cheio!");
-														break;
-													} else
-														
-														System.out.println("Qual o preço de custo ?");
-														double precoCusto = input.nextDouble();
-														System.out.println("Qual o preço de venda ?");
-														double precoVenda = input.nextDouble();
-														input = new Scanner(System.in);
-														System.out.println("Qual a data de produção ? (formatação: XX/YY/ZZZZ)");
-														String dataUltimaCompraEstoque = input.nextLine();
-														
-														Produtos produto = new Produtos(nomeProduto, quantidadeEstoque, 
-																precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont));
-														
-														empresas.get(cont).estoque.produtosEmEstoque.add(produto);
-												}
-									}
-									
 								}
+									break;
+								
+							
+							case 2:
+								
+								//Adcionado unidades a um proutos existente
+								int numProdutos=0;
+								
+								System.out.println("--Lista de produtos no sistema--");
+								
+								for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {
+									System.out.println("Nome: "+empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto+
+											" - Quantidade em estoque: " + empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque());
+									numProdutos++;
+								}
+								
+								if(numProdutos==0) {
+									System.out.println("Esta empresa não possui produtos");
+									break;
+								}
+								
+								//Caso o Queira adicionar mais estoque do produto
+								input = new Scanner(System.in);
+								System.out.println("\nQual o nome do produto ?");
+								String nomeProduto = input.nextLine();
+								int idAdd=-1;
+								
+								//Pega a posicao do produto
+								for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {	
+									if(empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProduto)) {
+										idAdd=s;
+										continue;
+									} 
+								}
+								
+								if(idAdd==-1) {
+									System.out.println("Este produto não consta no sistema");
+									break;
+								}
+							
+								input = new Scanner(System.in);
+								System.out.println("Qual a quantidade a se adicionar deste produto no estoque ?");
+								int quantidadeEstoque = input.nextInt();
+								int total=0, acumulado=0;
+								
+								total= quantidadeEstoque;
+								acumulado=quantidadeEstoque+empresas.get(cont).estoque.produtosEmEstoque.get(idAdd).getQuatidadeEstoque();
+								
+								//Calculando estoque total antes de adicionar produto
+								for(int a=0;a<empresas.get(cont).estoque.produtosEmEstoque.size(); a++) {
+									total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
+								}
+								
+								if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+									
+									System.out.println("O estoque do fornecedor -" + empresas.get(cont).nome + "- está cheio!");
+									break;
+								} else
+									
+									System.out.println("Qual o novo preço de custo ? Atual: R$"+empresas.get(cont).estoque.produtosEmEstoque.get(idAdd).getPrecoCusto());
+									double precoCusto = input.nextDouble();
+									System.out.println("Qual o novo preço de venda ? Atual: R$"+empresas.get(cont).estoque.produtosEmEstoque.get(idAdd).precoVenda);
+									double precoVenda = input.nextDouble();
+									input = new Scanner(System.in);
+									System.out.println("Qual a data de produção ? (formatação: XX/YY/ZZZZ)");
+									String dataUltimaCompraEstoque = input.nextLine();
+									
+									empresas.get(cont).estoque.produtosEmEstoque.get(idAdd).alteracaoCadastrosProduto(nomeProduto,
+											acumulado, precoCusto, precoVenda, dataUltimaCompraEstoque, empresas.get(cont));
+					
+								break;
+								
+							default:
+								System.out.println("Opcao Inválida");
+								break;
+							}
+							
 							break;
 							
+						/*
 						//Caso de entrada produtos para Loja
+						 * 
+						 */
 						} else if(empresas.get(cont) instanceof Loja){
 							int cont2=-1;//Identificador do fornecedor para a loja
+							
+							//caixa de mensgem com todos os produtos no Fornecedos escolhido
+							String lista="";
+							
+							for(i=0;i<empresas.size();i++) {
+								if(empresas.get(i) instanceof Fornecedor) {
+									lista+="FORNECEDOR --"+ empresas.get(i).nome +"--\n";
+									
+									if(empresas.get(i).estoque.produtosEmEstoque.isEmpty()) {
+										lista+="Nenhum produto no sistema";
+									} else
+										for(int j=0; j<empresas.get(i).estoque.produtosEmEstoque.size();j++) {
+											lista+=empresas.get(i).estoque.produtosEmEstoque.get(j).nomeProduto+
+													"\n";
+									}
+								}
+							}
+							
+							JOptionPane.showMessageDialog(null, lista);
 							
 							System.out.println("Qual o nome do fornecedor dos produtos ?");
 							String nomeFornecedor = input.nextLine();
@@ -381,208 +427,221 @@ public class TrabalhoFinal {
 								}
 							}
 							
-							//Verificando se existe produto neste fornecedor
-							if(cont2 == -1 || empresas.get(cont2).estoque.produtosEmEstoque.isEmpty()) {
-								System.out.println("Nenhum fornecedor com esse nome no sistema ou não possui produtos disponíveis");
+							if(cont2==-1) {
+								System.out.println("Nenhum fornecedor com esse nome no sistema");
 								break;
-							} else
+							}
 							
-							System.out.println("Quantos produtos serão adicionados ?");
-							int num = input.nextInt();
+							System.out.println("Adicionando Produtos a Loja -"+empresas.get(cont).nome+"-");
+							input = new Scanner(System.in);
 							
-							for(int p=0;p<num;p++) {
+							System.out.println("1 - Adicionar novo produto\n"
+									+ "2 - Aumentar estoque do produto");
+							
+							int opcaoAdicionar = input.nextInt();
+							
+							switch(opcaoAdicionar) {
+							
+							case 1://Adicionado produto ao sistema da Loja
+							
+								//caixa de mensgem com todos os produtos no Fornecedos escolhido
+								lista="Produtos em estoque na " + empresas.get(cont2).nome +":\n";
 								
-								System.out.println("---Produto "+ (p+1) +" ---");
+								for(int j=0; j<empresas.get(cont2).estoque.produtosEmEstoque.size();j++) {
+									lista+="-" +empresas.get(cont2).estoque.produtosEmEstoque.get(j).nomeProduto
+											+ "- Unidades disponívies: " + empresas.get(cont2).estoque.produtosEmEstoque.get(j).getQuatidadeEstoque()+"\n";
+								}
 								
-								if(empresas.get(cont).estoque.produtosEmEstoque.isEmpty()) {
-										
+								System.out.println(lista);
+							
+								System.out.println("Quantos produtos serão adicionados ?");
+								int num = input.nextInt();
+								
+								for(int p=0;p<num;p++) {
+									
+									System.out.println("---Produto "+ (p+1) +" ---");
+											
 										input = new Scanner(System.in);
 										System.out.println("Qual o nome do produto ?");
 										String nomeProdutoTransferido = input.nextLine();
-										int produtoTransferido=-1;
+										int posicaoProdutoTransferido=-1;
+										int posicaoProdutoNaLoja=-1;
+										int identificaExistente=0;
 										
-										for(int s=0;s<empresas.get(cont2).estoque.produtosEmEstoque.size(); s++) {
-											if(empresas.get(cont2).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProdutoTransferido)) {
-											produtoTransferido=s;
-											} 
+										//Verifica se existe de fato o produto no estoque da Loja
+										for(int a=0; a<empresas.get(cont).estoque.produtosEmEstoque.size();a++) {
+											if(empresas.get(cont).estoque.produtosEmEstoque.get(a).nomeProduto.equals(nomeProdutoTransferido)) {
+												posicaoProdutoNaLoja=a;
+												identificaExistente++;
+											}		
 										}
 										
-										if(produtoTransferido==-1) {
+										if(identificaExistente!=0) {
+											System.out.println("Produto já existe no sistema em seu estoque");
+											
+											break;
+										}
+											
+										//verifica se o produto esta no Fornecedor 
+										for(int s=0;s<empresas.get(cont2).estoque.produtosEmEstoque.size(); s++) {
+											if(empresas.get(cont2).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProdutoTransferido)) {
+												posicaoProdutoTransferido=s;
+											} 
+										}
+											
+										if(posicaoProdutoTransferido==-1) {
 											System.out.println("Prouduto não listado no sistema");
 											break;
 										}
-										
+											
 										input = new Scanner(System.in);
 										System.out.println("Qual a quantidade de estoque ?");
 										int quantidadeEstoque = input.nextInt();
-										int total=0, subtracao=empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque()-quantidadeEstoque;
-										
+										int total=0, subtracao=empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).getQuatidadeEstoque()-quantidadeEstoque;
+											
 										total=quantidadeEstoque;
-										
+											
 										//Calculando estoque total antes de adicionar produto
 										for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {
 											total+=empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
 										}
-										
-										if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
 											
+										if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+												
 											System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
 											break;
 										} else 
-										
+											
 										/*Verifica se o forncedor tem a quantidade de 
 										produtos, se sim, subtrai o estoque do fornecedor para adicionar na loja
 										*/
-											
-										if(empresas.get(cont).estoque.verificaCompra(quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque())==true) {
-											empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).setQuatidadeEstoque(subtracao);
+												
+										if(empresas.get(cont).estoque.verificaCompra(quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).getQuatidadeEstoque())==true) {
+											empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).setQuatidadeEstoque(subtracao);
 										} else {
 											System.out.println("Fornecedora não possui estoque suficiente deste produto"
-													+ "\nEstoque atual em unidades: " + empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque()); 
+													+ "\nEstoque atual em unidades: " + empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).getQuatidadeEstoque()); 
 											break;
 										}
-										
-										System.out.println("O valor de compra da unidade é de: R$" + empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).precoVenda);
+											
+										System.out.println("O valor de compra da unidade é de: R$" + empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).precoVenda);
 										System.out.println("Qual o preço de venda ?");
 										double precoVenda = input.nextDouble();
 										input = new Scanner(System.in);
 										System.out.println("Qual a data de compra ? (formatação: XX/YY/ZZZZ)");
 										String dataUltimaCompraEstoque = input.nextLine();
-										
-										empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).setDataUltimaCompraEstoque("Comprado "+dataUltimaCompraEstoque + " por " + empresas.get(cont).nome);
 											
-										Produtos produto = new Produtos(nomeProdutoTransferido, quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).precoVenda, 
+										empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).setDataUltimaCompraEstoque("Comprado "+dataUltimaCompraEstoque + " por " + empresas.get(cont).nome);
+												
+										Produtos produto = new Produtos(nomeProdutoTransferido, quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).precoVenda, 
 												precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
 											
 										empresas.get(cont).estoque.produtosEmEstoque.add(produto);
 									
-								} else {
-									
-									//Caso o Array de produtos não esteja vazio
-									input = new Scanner(System.in);
-									System.out.println("Qual o nome do produto ?");
-									String nomeProdutoTransferido = input.nextLine();
-									int produtoTransferido=-1;
-									
-									for(int s=0;s<empresas.get(cont2).estoque.produtosEmEstoque.size(); s++) {
-										if(empresas.get(cont2).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProdutoTransferido)) {
-										produtoTransferido=s;
-										} 
-									}
-									
-									if(produtoTransferido==-1) {
-										System.out.println("Prouduto não listado no sistema");
-										break;
-									}
-									
-									//Verificando se ja existe o produto na loja
-									for(aux=0;aux<empresas.get(cont).estoque.produtosEmEstoque.size(); aux++) {
-										
-										if(empresas.get(cont).estoque.produtosEmEstoque.get(aux).nomeProduto.equals(nomeProdutoTransferido)) {
-											
-											//Produto já existe no estoque, então iremos adicionar
-											System.out.println("Estoque atual do produto: " + empresas.get(cont).estoque.produtosEmEstoque.get(aux).getQuatidadeEstoque());
-											
-											input = new Scanner(System.in);
-											System.out.println("Qual a quantidade a se adicionar deste produto no estoque ?");
-											int quantidadeEstoque = input.nextInt();
-											int total=0, acumulado=0, subtracao=empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque()-quantidadeEstoque;
-												
-											total= quantidadeEstoque;
-											acumulado=quantidadeEstoque+empresas.get(cont).estoque.produtosEmEstoque.get(aux).getQuatidadeEstoque();
-												
-											//Calculando estoque total antes de adicionar produto
-											for(int a=0;a<empresas.get(cont).estoque.produtosEmEstoque.size(); a++) {
-												total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
-											}
-												
-											if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
-													
-												System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
-												break;
-											} else 
-												
-											/*Verifica se o forncedor tem a quantidade de 
-											produtos, se sim, subtrai o estoque do fornecedor para adicionar na loja
-											*/
-													
-											if(empresas.get(cont).estoque.verificaCompra(quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque())==true) {
-												empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).setQuatidadeEstoque(subtracao);
-											} else {
-												System.out.println("Fornecedora não possui estoque suficiente deste produto"
-														+ "\nEstoque atual em unidades: " + empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque()); 
-												break;
-											}
-											
-											System.out.println("O valor de compra da unidade é de: R$" + empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).precoVenda);
-											System.out.println("Qual o novo preço de venda ?");
-											double precoVenda = input.nextDouble();
-											input = new Scanner(System.in);
-											System.out.println("Qual a data de compra ? (formatação: XX/YY/ZZZZ)");
-											String dataUltimaCompraEstoque = input.nextLine();
-												
-											//Atualizando data no produto do fornecedor
-											empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).setDataUltimaCompraEstoque("Comprado "+dataUltimaCompraEstoque + " por " + empresas.get(cont).nome);
-												
-											empresas.get(cont).estoque.produtosEmEstoque.get(aux).alteracaoCadastrosProduto(nomeProdutoTransferido, acumulado,  empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).precoVenda
-													, precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
-									
-											
-											//Caso o produto não esteja no array, e o array não está vazio
-											} else if(empresas.get(cont).estoque.produtosEmEstoque.get(aux).nomeProduto!=nomeProdutoTransferido){
-													
-													//Adicionando novo produto ao estoque da loja
-												input = new Scanner(System.in);
-												System.out.println("Qual a quantidade de estoque ?");
-												int quantidadeEstoque = input.nextInt();
-												int total=0, subtracao=empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque()-quantidadeEstoque;
-												
-												total=quantidadeEstoque;
-												
-												//Calculando estoque total antes de adicionar produto
-												for(int a=0;a<empresas.get(cont).estoque.produtosEmEstoque.size(); a++) {
-													total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
-												}
-												
-												if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
-													
-													System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
-													break;
-												} else 
-												
-												/*Verifica se o forncedor tem a quantidade de 
-												produtos, se sim, subtrai o estoque do fornecedor para adicionar na loja
-												*/
-													
-												if(empresas.get(cont).estoque.verificaCompra(quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque())==true) {
-													empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).setQuatidadeEstoque(subtracao);
-												} else {
-													System.out.println("Fornecedora não possui estoque suficiente deste produto"
-															+ "\nEstoque atual em unidades: " + empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).getQuatidadeEstoque()); 
-													break;
-												}
-												
-												System.out.println("O valor de compra da unidade é de: R$" + empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).precoVenda);
-												System.out.println("Qual o preço de venda ?");
-												double precoVenda = input.nextDouble();
-												input = new Scanner(System.in);
-												System.out.println("Qual a data de compra ? (formatação: XX/YY/ZZZZ)");
-												String dataUltimaCompraEstoque = input.nextLine();
-												
-												empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).setDataUltimaCompraEstoque("Comprado "+dataUltimaCompraEstoque + " por " + empresas.get(cont).nome);
-													
-												Produtos produto = new Produtos(nomeProdutoTransferido, quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(produtoTransferido).precoVenda, 
-														precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
-													
-												empresas.get(cont).estoque.produtosEmEstoque.add(produto);
-													
-											}
-										break;
-									}
 								}
-							}
-	
+							break; //Fim da função
+								
+							case 2:
+								//adicionando unidades a um produto na existente
+								
+								int numProdutos=0, produtoTransferido=0;
+								System.out.println("--Lista de produtos no sistema--");
+								
+								for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {
+									System.out.println("Nome: "+empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto+
+											" - Quantidade em estoque: " + empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque());
+									numProdutos++;
+								}
+								
+								if(numProdutos==0) {
+									System.out.println("Esta empresa não possui produtos");
+									break;
+								}
+								
+								input = new Scanner(System.in);
+								System.out.println("\nQual o nome do produto ?");
+								String nomeProdutoTransferido= input.nextLine();
+								int posicaoProdutoNoFornecedor=-1;
+								int posicaoProdutoAdicionado=-1;//Posicao do meu produto na Loja
+								
+								//Pega a posicao do produto na Loja
+								for(int s=0;s<empresas.get(cont).estoque.produtosEmEstoque.size(); s++) {	
+									if(empresas.get(cont).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProdutoTransferido)) {
+										posicaoProdutoAdicionado=s;
+										continue;
+									} 
+								}
+								
+								if(posicaoProdutoAdicionado==-1) {
+									System.out.println("Este produto não consta no sistema");
+									break;
+								}
+								//Procura o Produto no estoque do fornecedor, para poder decrementar
+								for(int s=0;s<empresas.get(cont2).estoque.produtosEmEstoque.size(); s++) {
+									if(empresas.get(cont2).estoque.produtosEmEstoque.get(s).nomeProduto.equals(nomeProdutoTransferido)) {
+										posicaoProdutoNoFornecedor=s;
+									} 
+								}
+									
+								if(posicaoProdutoNoFornecedor==-1) {
+									System.out.println("Prouduto não listado no sistema do Fornecedor");
+									break;
+								}
+								
+								//Produto já existe no estoque, então iremos adicionar
+								System.out.println("Estoque atual do produto: " + empresas.get(cont).estoque.produtosEmEstoque.get(posicaoProdutoAdicionado).getQuatidadeEstoque());
+								
+								input = new Scanner(System.in);
+								System.out.println("Qual a quantidade a se adicionar deste produto no estoque ?");
+								int quantidadeEstoque = input.nextInt();
+								int total=0, acumulado=0, subtracao=empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).getQuatidadeEstoque()-quantidadeEstoque;
+									
+								total= quantidadeEstoque;
+								acumulado=quantidadeEstoque+empresas.get(cont).estoque.produtosEmEstoque.get(posicaoProdutoAdicionado).getQuatidadeEstoque();
+									
+								//Calculando estoque total antes de adicionar produto
+								for(int a=0;a<empresas.get(cont).estoque.produtosEmEstoque.size(); a++) {
+									total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
+								}
+									
+								if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+										
+									System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
+									break;
+								} else 
+									
+								/*Verifica se o forncedor tem a quantidade de 
+								produtos, se sim, subtrai o estoque do fornecedor para adicionar na loja
+								*/
+										
+								if(empresas.get(cont).estoque.verificaCompra(quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).getQuatidadeEstoque())==true) {
+									empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).setQuatidadeEstoque(subtracao);
+								} else {
+									System.out.println("Fornecedora não possui estoque suficiente deste produto"
+											+ "\nEstoque atual em unidades: " + empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).getQuatidadeEstoque()); 
+									break;
+								}
+								
+								System.out.println("O valor de compra da unidade é de: R$" + empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).precoVenda);
+								System.out.println("Qual o novo preço de venda ?");
+								double precoVenda = input.nextDouble();
+								input = new Scanner(System.in);
+								System.out.println("Qual a data de compra ? (formatação: XX/YY/ZZZZ)");
+								String dataUltimaCompraEstoque = input.nextLine();
+									
+								//Atualizando data no produto do fornecedor
+								empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).setDataUltimaCompraEstoque("Comprado "+dataUltimaCompraEstoque + " por " + empresas.get(cont).nome);
+									
+								empresas.get(cont).estoque.produtosEmEstoque.get(posicaoProdutoAdicionado).alteracaoCadastrosProduto(nomeProdutoTransferido, acumulado,  empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoNoFornecedor).precoVenda
+										, precoVenda, dataUltimaCompraEstoque, empresas.get(cont2));
+								
+								break; //Fim da função
+								
+							default:
+								System.out.println("Opcao Inálida");
+							
 							break;
+							}
 						} else  
 							System.out.println("Nenhuma loja com esse nome no sistema");
 					}
