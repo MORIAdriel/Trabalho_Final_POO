@@ -24,9 +24,9 @@ public class Estoque {
 		this.capacidadeMax = capacidadeMax;
 	}
 
-	public boolean verificaEstoque(int capacidadeMax, int total) {
+	public boolean verificaEstoque(int total) {
 
-		if(capacidadeMax<total) return false;
+		if(this.capacidadeMax<total) return false;
 		else return true;
 	}
 

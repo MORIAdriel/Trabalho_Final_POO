@@ -292,7 +292,7 @@ public class TrabalhoFinal {
 										total+=empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
 									}
 									
-									if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+									if (empresas.get(cont).estoque.verificaEstoque(total)==false) {
 										
 										System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
 										break;
@@ -364,7 +364,7 @@ public class TrabalhoFinal {
 									total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
 								}
 								
-								if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+								if (empresas.get(cont).estoque.verificaEstoque(total)==false) {
 									
 									System.out.println("O estoque do fornecedor -" + empresas.get(cont).nome + "- está cheio!");
 									break;
@@ -504,7 +504,7 @@ public class TrabalhoFinal {
 											total+=empresas.get(cont).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
 										}
 											
-										if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+										if (empresas.get(cont).estoque.verificaEstoque(total)==false) {
 												
 											System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
 											break;
@@ -603,7 +603,7 @@ public class TrabalhoFinal {
 									total+=empresas.get(cont).estoque.produtosEmEstoque.get(a).getQuatidadeEstoque();
 								}
 									
-								if (empresas.get(cont).estoque.verificaEstoque(empresas.get(cont).estoque.getCapacidadeMax(), total)==false) {
+								if (empresas.get(cont).estoque.verificaEstoque(total)==false) {
 										
 									System.out.println("O estoque da loja -" + empresas.get(cont).nome + "- está cheio!");
 									break;
@@ -803,7 +803,7 @@ public class TrabalhoFinal {
 										total+=empresas.get(i).estoque.produtosEmEstoque.get(s).getQuatidadeEstoque();
 									}
 									
-									if (empresas.get(i).estoque.verificaEstoque(empresas.get(i).estoque.getCapacidadeMax(), total)==false) {
+									if (empresas.get(i).estoque.verificaEstoque(total)==false) {
 										
 										System.out.println("O estoque da loja -" + empresas.get(i).nome + "- está cheio!");
 										break;
