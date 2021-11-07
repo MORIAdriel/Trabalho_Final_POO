@@ -1,7 +1,7 @@
 package src;
 
 /*
- * Essa classe testa se o construtor de Loja funciona corretamente
+ * Essa classe testa se o método verifica estoque funciona
  * @author Igor M. Padua e Adriel L. V. Mori
  */
 
@@ -12,15 +12,13 @@ public class ClasseTeste {
 	
 	@Test
 	public void test1() {
-		Loja loja = new Loja("Marcos", "62982078786", "435/3340-01", "Produtos básicos");
-		// Verifica se o CNPJ está correto
-		assertTrue(loja.cnpj.equals("435/3340-01"));
+		Estoque estoque = new Estoque(200);
+		assertEquals(true, estoque.verificaEstoque(200, 20));
 	}
 	
 	@Test
 	public void test2() {
-		Loja loja = new Loja("Coca", "62987032755", "754/2018-19", "Refrigerante");
-		// Verifica se a razão social está correta
-		assertTrue(loja.razaoSocial.equals("Refrigerante"));
+		Estoque estoque = new Estoque(35);
+		assertEquals(false, estoque.verificaEstoque(35, 290));
 	}
 }
