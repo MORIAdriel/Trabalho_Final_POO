@@ -1,4 +1,4 @@
-package scr;
+package src;
 
 /*
  * Uma classe que recebe os parametros para construir 
