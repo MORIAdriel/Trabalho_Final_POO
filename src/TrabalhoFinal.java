@@ -241,8 +241,7 @@ public class TrabalhoFinal {
 						}
 						
 						/*
-						//Caso de entrada produtos para Loja
-						 * 
+						 * Caso de entrada produtos para Fornecedor
 						 */
 						if(empresas.get(cont) instanceof Fornecedor) {
 							
@@ -317,7 +316,7 @@ public class TrabalhoFinal {
 							
 							case 2:
 								
-								//Adcionado unidades a um proutos existente
+								//Adicionado unidades a um produto existente
 								int numProdutos=0;
 								
 								System.out.println("--Lista de produtos no sistema--");
@@ -333,7 +332,7 @@ public class TrabalhoFinal {
 									break;
 								}
 								
-								//Caso o Queira adicionar mais estoque do produto
+								//Caso o usuário queira adicionar mais estoque do produto
 								input = new Scanner(System.in);
 								System.out.println("\nQual o nome do produto ?");
 								String nomeProduto = input.nextLine();
@@ -392,13 +391,12 @@ public class TrabalhoFinal {
 							break;
 							
 						/*
-						//Caso de entrada produtos para Loja
-						 * 
+						 * Caso de entrada produtos para Loja
 						 */
 						} else if(empresas.get(cont) instanceof Loja){
 							int cont2=-1;//Identificador do fornecedor para a loja
 							
-							//caixa de mensgem com todos os produtos no Fornecedos escolhido
+							//caixa de mensagem com todos os produtos do fornecedor escolhido
 							String lista="";
 							
 							for(i=0;i<empresas.size();i++) {
@@ -444,7 +442,7 @@ public class TrabalhoFinal {
 							
 							case 1://Adicionado produto ao sistema da Loja
 							
-								//caixa de mensgem com todos os produtos no Fornecedos escolhido
+								//caixa de mensagem com todos os produtos do fornecedor escolhido
 								lista="Produtos em estoque na " + empresas.get(cont2).nome +":\n";
 								
 								for(int j=0; j<empresas.get(cont2).estoque.produtosEmEstoque.size();j++) {
@@ -512,8 +510,9 @@ public class TrabalhoFinal {
 											break;
 										} else 
 											
-										/*Verifica se o forncedor tem a quantidade de 
-										produtos, se sim, subtrai o estoque do fornecedor para adicionar na loja
+										/*
+										 * Verifica se o forncedor tem a quantidade de 
+										 * produtos, se sim, subtrai o estoque do fornecedor para adicionar na loja
 										*/
 												
 										if(empresas.get(cont).estoque.verificaCompra(quantidadeEstoque, empresas.get(cont2).estoque.produtosEmEstoque.get(posicaoProdutoTransferido).getQuatidadeEstoque())==true) {
@@ -542,7 +541,7 @@ public class TrabalhoFinal {
 							break; //Fim da função
 								
 							case 2:
-								//adicionando unidades a um produto na existente
+								//adicionando unidades a um produto já existente
 								
 								int numProdutos=0, produtoTransferido=0;
 								System.out.println("--Lista de produtos no sistema da Loja--");
@@ -638,7 +637,7 @@ public class TrabalhoFinal {
 								break; //Fim da função
 								
 							default:
-								System.out.println("Opcao Inálida");
+								System.out.println("Opção inválida");
 							
 							break;
 							}
