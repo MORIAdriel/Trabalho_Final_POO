@@ -1,12 +1,9 @@
-package src;
+package trabalhoFinal;
 
 /**
- * Uma classe que recebe os parametros para construir 
- * o gráfico de pizza 
+ * Uma classe que recebe os parametros para construir o gráfico de pizza 
  * @author Igor M. Padua e Adriel L. V. Mori
- */
-
-import java.util.ArrayList;
+*/
 
 import javax.swing.JFrame;
 
@@ -17,6 +14,13 @@ import org.jfree.data.general.DefaultPieDataset;
 
 public class Grafico extends JFrame{
 
+	/**
+	  * Uma classe que recebe os parametros para construir o gráfico de pizza 
+	  * @author Igor M. Padua e Adriel L. V. Mori
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@SuppressWarnings("removal")
 	public Grafico(String nomeEmpresa,int[] emEstoque, String[] produtos
 			, int total) {
 		super("Ocupação do Estoque");
