@@ -2,7 +2,7 @@ package src;
 
 import java.util.ArrayList;
 
-/*
+/**
  * Uma classe Estoque que contem os produtos de uma Loja 
  * @author Igor M. Padua e Adriel L. V. Mori
  */
