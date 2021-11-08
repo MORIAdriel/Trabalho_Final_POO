@@ -1,6 +1,6 @@
 package src;
 
-/*
+/**
  * Essa classe testa se o método verifica estoque funciona
  * @author Igor M. Padua e Adriel L. V. Mori
  */
