@@ -1,6 +1,6 @@
 package src;
 
-/*
+/**
  * Uma classe que representa um produto de uma loja ou estoque  
  * @author Igor M. Padua e Adriel L. V. Mori
  */
