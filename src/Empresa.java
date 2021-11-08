@@ -1,6 +1,6 @@
 package src;
 
-/*
+/**
  * Uma classe abstrata que representa uma empresa
  * @author Igor M. Padua e Adriel L. V. Mori
  */
