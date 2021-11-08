@@ -10,7 +10,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import java.util.Scanner;
 import java.io.*;
 
-/*
+/**
  * Classe principal do programa  
  * @author Igor M. Padua e Adriel L. V. Mori
  */
