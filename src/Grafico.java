@@ -1,6 +1,6 @@
 package src;
 
-/*
+/**
  * Uma classe que recebe os parametros para construir 
  * o gráfico de pizza 
  * @author Igor M. Padua e Adriel L. V. Mori
