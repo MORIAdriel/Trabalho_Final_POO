@@ -1,6 +1,6 @@
 package src;
 
-/*
+/**
  * Uma classe que representa um fornecedor 
  * @author Igor M. Padua e Adriel L. V. Mori
  */
