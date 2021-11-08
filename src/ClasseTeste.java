@@ -13,12 +13,12 @@ public class ClasseTeste {
 	@Test
 	public void test1() {
 		Estoque estoque = new Estoque(200);
-		assertEquals(true, estoque.verificaEstoque(200, 20));
+		assertEquals(true, estoque.verificaEstoque(20));
 	}
 	
 	@Test
 	public void test2() {
 		Estoque estoque = new Estoque(35);
-		assertEquals(false, estoque.verificaEstoque(35, 290));
+		assertEquals(false, estoque.verificaEstoque(290));
 	}
 }
