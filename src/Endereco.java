@@ -1,6 +1,6 @@
 package src;
 
-/*
+/**
  * Uma classe que contem os dados de um endereço
  * @author Igor M. Padua e Adriel L. V. Mori
  */
