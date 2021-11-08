@@ -1,4 +1,4 @@
-package trabalhoFinal;
+package src;
 
 /**
  * Uma classe que recebe os parametros para construir o gráfico de pizza 
