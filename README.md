@@ -13,7 +13,7 @@
 
 # Trabalho_Final_POO
 
-☄️ Implementaçõs para trabalho final da disciplina de POO que simulam a adimistração de um estoque de compra e venda em redes de distuibuidoras e fornecedores.
+☄️ Implementations for the final work of the OOP discipline that simulate the administration of a purchase and sale stock in distributor and supplier networks.
 
 :mechanical_arm: feat Igor Pádua
 
